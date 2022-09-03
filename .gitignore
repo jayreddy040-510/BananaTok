@@ -68,3 +68,4 @@ yarn-debug.log*
 !/storage/.keep
 /public
 /config/master.key
+/config/master.key
