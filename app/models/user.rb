@@ -5,18 +5,20 @@ class User < ApplicationRecord
     validates :session_token, uniqueness: true
     validates :password, length: { in: 6..25 }, allow_nil: true
 
+    has_secure_password
     before_validation :ensure_session_token
 
     attr_accessor :password
 
-    def self.find_by_credentials(email, password)
-        user = User.find_by(email: email)
+
+
+    def self.find_by_credentials(username, password)
+        User.find_by(username: username)&.authenticate(password)
         # `user&.is_password?(password)` is syntactic sugar for
         # `user && user.is_password?(password)`
-        user&.is_password?(password) ? user : nil
     end
 
-    has_secure_password
+    
     
       def password=(password)
         @password = password
