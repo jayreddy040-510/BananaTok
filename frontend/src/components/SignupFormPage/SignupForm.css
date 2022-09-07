@@ -1,0 +1,67 @@
+/* .flexer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+
+} */
+
+.login-word-img {
+    scale: 0.5;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 50%;
+    border-right: solid;
+    border-width: 0.5px;
+    border-color: rgb(204, 205, 207);
+    padding: 10px;
+}
+
+.signup-form {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.signup-button {
+    padding: 8px;
+    width: 45%;
+    background-color: rgb(255,196,12);
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.signup-button:hover {
+    background-color: rgb(222, 167, 4);
+}
+
+.welcome-video-container > video {
+    object-fit: cover;
+}
+
+
+
+
+
+
+.errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    color: red;
+}

@@ -11,6 +11,8 @@ function LoginFormPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4"];
+
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -33,12 +35,15 @@ function LoginFormPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+    <div className='welcome'>
+   
+    <div className='login-container'>
+    <div className='login-header'><img className='login-word-img' src='login_word.png' alt='' /></div>
+    <form className='username-password' onSubmit={handleSubmit}>
+      <ul className='errors'>
+        {errors.map(error => <li className='error' key={error}>{error}</li>)}
       </ul>
       <label>
-        Username
         <input
           type="text"
           value={username}
@@ -48,7 +53,6 @@ function LoginFormPage() {
         />
       </label>
       <label>
-        Password
         <input
           type="password"
           value={password}
@@ -57,8 +61,15 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button className='login-button'>Log In</button>
     </form>
+    </div>
+    <div className="welcome-video-container">
+        <video width="100%" height="100%"  loop autoPlay muted>
+            <source src={videos[(Math.round(Math.random()*(videos.length-1)))]} type="video/mp4"/>video cannot be played
+        </video>
+    </div>
+    </div>
   );
 }
 

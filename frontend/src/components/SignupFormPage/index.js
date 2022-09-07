@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import "./SignupForm.css"
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4"]
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -36,48 +38,64 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+    <div className="welcome">
+    <div className="left-container">
+      <div className="flexer">
+      <div className='login-header'><img className='login-word-img' src='signup_word.png' alt='' /></div>
+    <form className="signup-form" onSubmit={handleSubmit}>
+      <ul className='errors'>
+        {errors.map(error => <li className="error" key={error}>{error}</li>)}
       </ul>
       <label>
-        Email
+        
         <input
           type="text"
           value={email}
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
       <label>
-        Username
+        
         <input
           type="text"
           value={username}
+          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
       <label>
-        Password
+        
         <input
           type="password"
           value={password}
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
       <label>
-        Confirm Password
+        
         <input
           type="password"
           value={confirmPassword}
+          placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className="signup-button" type="submit">Sign Up</button>
     </form>
+      </div>
+    </div>
+    <div className="welcome-video-container">
+        <video width="100%" height="100%"  loop autoPlay muted>
+            <source src={videos[(Math.round(Math.random()*(videos.length-1)))]} type="video/mp4"/>video cannot be played
+        </video>
+    </div>
+    </div>
   );
 }
 
