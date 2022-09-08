@@ -16,7 +16,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 92vh;
     width: 50%;
     border-right: solid;
     border-width: 0.5px;
@@ -28,13 +28,15 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* align-items: center; */
+    align-items: center;
     height: 20vh;
+    width: 100%;
 }
+
 
 .login-button {
     padding: 8px;
-    width: 100%;
+    width: 41%;
     background-color: rgb(255,196,12);
     border-radius: 5px;
     border: none;
@@ -60,6 +62,7 @@ h1 {
 
 .welcome-video-container > video {
     object-fit: cover;
+    height: 100vh;
 }
 
 .login-word-img {
@@ -67,5 +70,7 @@ h1 {
 }
 
 input {
-    line-height: 2.5vh;
+    line-height: 25px;
+    width: 40%;
+
 }

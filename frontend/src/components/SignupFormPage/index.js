@@ -12,7 +12,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4"]
+  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4", "11.mp4", "12.mp4", "13.mp4", "14.mp4"];
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -46,7 +46,7 @@ function SignupFormPage() {
       <ul className='errors'>
         {errors.map(error => <li className="error" key={error}>{error}</li>)}
       </ul>
-      <label>
+
         
         <input
           type="text"
@@ -55,8 +55,8 @@ function SignupFormPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
+
+
         
         <input
           type="text"
@@ -65,8 +65,8 @@ function SignupFormPage() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
-      <label>
+
+
         
         <input
           type="password"
@@ -75,8 +75,8 @@ function SignupFormPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <label>
+
+
         
         <input
           type="password"
@@ -85,7 +85,7 @@ function SignupFormPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-      </label>
+
       <button className="signup-button" type="submit">Sign Up</button>
     </form>
       </div>

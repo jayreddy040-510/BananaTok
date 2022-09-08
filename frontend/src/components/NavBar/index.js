@@ -5,6 +5,7 @@ import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { BsSearch } from "react-icons/bs";
 
 
 
@@ -14,6 +15,12 @@ function NavBar() {
     const navigateToLogin = () => {
         history.push('/login')
     }
+
+    const clickHandler = () => {
+        history.push("/")
+
+    }
+
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -27,15 +34,6 @@ function NavBar() {
     }
 
     const demoLogin = async() => {
-        // const data = await csrfFetch('/api/session').then(res => res.json())
-        const demoLoginOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({  
-              username: 'omniliberal',
-              password: 'password',
-            })
-          }
         if (!sessionUser) {
             console.log('logging in demo dgg')
             ;
@@ -52,7 +50,7 @@ function NavBar() {
                     </div>
                 <div><input className="search-bar" type="text" placeholder='Search Videos' /></div>
                 <div className='nav-bar-buttons'>
-                    <div><button className='upload-button'>Upload</button></div>
+                    <div><button className='upload-button' onClick={clickHandler}>Upload</button></div>
                     <div><button className='log-in-buttons' onClick={logOut}>Log Out</button></div>
                 </div>
             </div>
@@ -65,7 +63,7 @@ function NavBar() {
                 <div className='logo-title'><img className='logo' src={require('./image.png')} alt='' />
                 <img className='title' src={require('./title.png')} alt='' />
                 </div>
-            <div><input className="search-bar" type="text" placeholder='  Search Videos' /></div>
+            <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
                 <div><button className='upload-button'><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>

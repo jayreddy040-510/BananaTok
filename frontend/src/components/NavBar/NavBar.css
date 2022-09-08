@@ -1,5 +1,5 @@
 .nav {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -42,19 +42,65 @@
 }
 
 .search-bar {
-    width: 180%;
-    border-radius: 20px;
+    width: 80%;
+    outline: none;
     border: none;
-    line-height: 275%;
+    border-right: solid;
+    border-width: 0.2px;
+    border-color: rgb(204, 205, 207);
     caret-color: rgb(255,196,12);
-    background-color: rgb(243, 243, 244);
+    background-color: transparent;
+    appearance: textfield;
+    font-size: 16px;
+    color: rgb(58, 57, 57);
+    height: 70%;
+}
+
+.search-button {
+    width: 15%;
+    border: transparent;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 100%;
+    font-size: 16px;
+    color: rgb(58, 57, 57);
+}
+
+.search-button:hover {
+    background-color: rgb(235, 235, 235);
 }
 
 .search-bar:focus {
-    outline-color: rgb(204, 205, 207);
-    outline-width: 0.3px;
-    outline-style: solid;
+    outline: none;
 }
+
+/* .hasBorder {
+height: 120%;
+flex-shrink: 0;
+}
+
+.search-bar:focus ~ .hasBorder {
+    border: solid;
+    border-color: red;
+} */
+
+.search-bar-div {
+    width: 25%;
+    height: 60%;
+    background-color: rgb(243, 243, 244);
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.search-bar-div:focus-within {
+    border: solid;
+    border-color: rgb(204, 205, 207);
+    border-width: 0.3px;
+}
+
 
 
 
@@ -93,4 +139,8 @@
 
 .upload-button:hover {
     background-color: rgb(249, 249, 249);
+}
+
+.logo-title img:hover {
+cursor: pointer;
 }

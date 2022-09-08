@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
-  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4"];
+  const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4", "7.mp4", "8.mp4", "9.mp4", "10.mp4", "11.mp4", "12.mp4", "13.mp4", "14.mp4"];
 
 
   if (sessionUser) return <Redirect to="/" />;
@@ -43,7 +43,7 @@ function LoginFormPage() {
       <ul className='errors'>
         {errors.map(error => <li className='error' key={error}>{error}</li>)}
       </ul>
-      <label>
+
         <input
           type="text"
           value={username}
@@ -51,8 +51,8 @@ function LoginFormPage() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
-      <label>
+
+
         <input
           type="password"
           value={password}
@@ -60,7 +60,7 @@ function LoginFormPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
+
       <button className='login-button'>Log In</button>
     </form>
     </div>

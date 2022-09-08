@@ -5,6 +5,8 @@ class User < ApplicationRecord
     validates :session_token, uniqueness: true
     validates :password, length: { in: 6..25 }, allow_nil: true
 
+    
+
     has_secure_password
     before_validation :ensure_session_token
 
