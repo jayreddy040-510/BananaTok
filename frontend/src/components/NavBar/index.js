@@ -38,7 +38,7 @@ function NavBar() {
             console.log('logging in demo dgg')
             ;
             // await csrfFetch('/api/session', demoLoginOptions).then(res => res.json())
-            dispatch(sessionActions.login({username: 'omniliberal', password: 'password'}))
+            dispatch(sessionActions.login({username: 'dieguccio', password: 'dieguccio'}))
         }
     }
     if (sessionUser) {
