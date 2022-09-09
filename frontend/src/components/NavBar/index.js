@@ -16,7 +16,7 @@ function NavBar() {
         history.push('/login')
     }
 
-    const clickHandler = () => {
+    const handleClick = () => {
         history.push("/")
 
     }
@@ -25,7 +25,7 @@ function NavBar() {
 
 
     const dispatch = useDispatch();
-    const logOut = async() => {
+    const logOut = () => {
 
         // await csrfFetch('/api/session', {
         //     method: 'DELETE'
@@ -33,7 +33,7 @@ function NavBar() {
         dispatch(sessionActions.logout())
     }
 
-    const demoLogin = async() => {
+    const demoLogin = () => {
         if (!sessionUser) {
             console.log('logging in demo dgg')
             ;
@@ -45,12 +45,12 @@ function NavBar() {
         return (
             <>
             <div className='nav'>
-                <div className='logo-title'><img className='logo' src={require('./image.png')} alt='' />
+                <div className='logo-title' onClick={handleClick}><img className='logo' src={require('./image.png')} alt='' />
                     <img className='title' src={require('./title.png')} alt='' />
                     </div>
-                <div><input className="search-bar" type="text" placeholder='Search Videos' /></div>
-                <div className='nav-bar-buttons'>
-                    <div><button className='upload-button' onClick={clickHandler}>Upload</button></div>
+                    <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
+            <div className='nav-bar-buttons'>
+                    <div><button className='upload-button'><span className='plus'>+ </span> Upload</button></div>
                     <div><button className='log-in-buttons' onClick={logOut}>Log Out</button></div>
                 </div>
             </div>
@@ -60,12 +60,12 @@ function NavBar() {
         <>
         <div className='nav'>
            
-                <div className='logo-title'><img className='logo' src={require('./image.png')} alt='' />
+                <div className='logo-title' onClick={handleClick}><img className='logo' src={require('./image.png')} alt=''/>
                 <img className='title' src={require('./title.png')} alt='' />
                 </div>
             <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
-                <div><button className='upload-button'><span className='plus'>+ </span> Upload</button></div>
+                <div><button className='upload-button' onClick={navigateToLogin}><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>
                 <div><button className='log-in-buttons' onClick={demoLogin}>Demo Log in</button></div>
             </div>
