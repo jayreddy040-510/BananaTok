@@ -7,6 +7,7 @@
 }
 
 .video-show-link {
+   position: relative;
    height: inherit;
    width: inherit;
    display: flex;
@@ -14,7 +15,7 @@
 }
 
 .video-show-link a {
-    width: 33%;
+    width: 38%;
 }
 
 .post-container {
@@ -22,6 +23,25 @@
     flex-direction: column;
     align-items: center;
     height: 60rem;
+}
+
+.tester {
+    font-family: PT Sans Caption;
+    width: fit-content;
+    height: fit-content;
+    color: floralwhite;
+    background-color: transparent;
+    pointer-events: none;
+    /* z-index: 5; */
+    position:absolute;
+    /* top:90%; */
+    bottom: 8%;
+    right: 40%;
+}
+
+.post-text-container {
+    width: 48%;
+    margin-right: 0%;
 }
 
 .post-index-div {
@@ -34,7 +54,7 @@
 }
 
 .postindex-caption {
-    width: 33%;
+    width: 86.8%;
     font-weight: 400;
     line-height: 22px;
     font-size: 16px;
@@ -46,7 +66,7 @@
     font-family: Poppins;
     font-weight: 600;
     font-size: 18px;
-    width: 33%;
+    /* width: 33%; */
     line-height: 25px;
 }
 
@@ -55,4 +75,46 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
+}
+
+.spacer2 {
+    height: 1px;
+    opacity: 0.5;
+    background-color: rgb(20, 59, 216);
+    width: 85%;
+}
+
+.index-buttons {
+    background-color: red;
+    width: 10%;
+    height: 40%;
+    /* z-index: 3; */
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.index-button {
+    width: 55px;
+    height:55px;
+    border-radius: 50%;
+    border: none;
+    color: rgb(40,40,40);
+    background-color: rgb(241,241,242); 
+    padding: 0px;
+    text-align:center;
+}
+
+.index-button:hover {
+    background-color: rgb(231,231,232)
+}
+
+.index-button-number {
+    color:white;
+    height:10%;
+    margin-top:10%;
+
 }

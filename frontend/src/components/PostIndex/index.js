@@ -32,10 +32,12 @@ const PostIndex = () => {
                     <div key={post.id} className="post-container">
                         <br />
                         <br />
+                        <div className="post-text-container">
                         <p className="postindex-username">{post.username}</p>
                         <p className="postindex-caption">{post.caption}
-                        <span className="postindex-tags"> #funny #hilarious #sad #lorem #ipsum #gg #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat #fullstackproject</span>
+                        <span className="postindex-tags"> #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat #fullstackproject</span>
                         </p>
+                        </div>
                         <br />
                         <div className="video-show-link">
                             <Link to={`/posts/${post.id}`}>
@@ -43,7 +45,17 @@ const PostIndex = () => {
                                 <source src={post.videoUrl} type="video/mp4"/>video cannot be played
                             </video>
                             </Link>
+                                <div className="tester">@{post.username}</div>
+                            <div className="index-buttons">
+                                <button className="index-button" id="bananas"></button>
+                                <div className='index-button-number' id='banana-number' >420</div>
+                                <button className="index-button"></button>
+                                <div className='index-button-number' id='comment-number'>69</div>
+                            </div>
                         </div>
+                        <br/>
+                    <div className="spacer2"></div>
+
                     </div>
                 )
             })}
