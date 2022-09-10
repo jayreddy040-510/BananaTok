@@ -24,12 +24,13 @@ rescue_from ActionController::InvalidAuthenticityToken,
     end
   
     def login!(user)
-      @current_user = user
       session[:session_token] = user.reset_session_token!
     end
 
     def logout!
-      @current_user = current_user
+      
+      # @current_user = reset_session_token!
+      @current_user.reset_session_token! if logged_in?
       session[:session_token] = nil
       @current_user = nil
     end

@@ -1,0 +1,11 @@
+.four-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60rem;
+}
+
+.four-text {
+    text-decoration: none;
+}

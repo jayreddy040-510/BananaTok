@@ -35,8 +35,7 @@ function NavBar() {
 
     const demoLogin = () => {
         if (!sessionUser) {
-            console.log('logging in demo dgg')
-            ;
+            console.log('logging in demo dgg');
             // await csrfFetch('/api/session', demoLoginOptions).then(res => res.json())
             dispatch(sessionActions.login({username: 'dieguccio', password: 'dieguccio'}))
         }

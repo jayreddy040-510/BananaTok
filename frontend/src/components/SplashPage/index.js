@@ -2,6 +2,7 @@ import { icons } from "react-icons/lib";
 import "./SplashPage.css"
 import { BsHouse } from "react-icons/bs"
 import { HiOutlinePlus } from "react-icons/hi";
+import PostIndex from "../PostIndex";
 
 
 const SplashPage = () => {
@@ -48,7 +49,9 @@ const SplashPage = () => {
 
 
 
-        <div className="right-container"></div>
+        <div className="right-container">
+            <PostIndex />
+        </div>
 
     </div>
     )
