@@ -4,10 +4,10 @@
     justify-content: space-between;
     align-items: center;
     top: 0px;
-    left: 10%;
+    /* left: 10%; */
     margin: 0px;
     height: 8vh;
-    width: 80%;
+    width: 100%;
     border-bottom: solid;
     border-width: 1.5px;
     border-color: #E8E8E8;
@@ -34,7 +34,7 @@
 .logo-title {
     height: 100%;
     display: flex;
-    width: 20%;
+    width: fit-content;
 }
 
 .title {
@@ -82,7 +82,7 @@
 
 
 .search-bar-div {
-    width: 32%;
+    width: 25%;
     height: 70%;
     background-color: rgb(243, 243, 244);
     border-radius: 20px;

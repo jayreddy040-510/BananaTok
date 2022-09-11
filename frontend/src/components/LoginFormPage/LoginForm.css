@@ -10,6 +10,7 @@ h1 {
 .welcome {
     display: flex;
     margin-top: 8vh;
+    width: 100%;
 }
 .login-container{
     display: flex;
