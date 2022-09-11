@@ -13,23 +13,28 @@ function App() {
 
   return (
     <>
-      <NavBar />
+    <NavBar />
     <Switch>
       <Route exact path="/">
         <SplashPage />
       </Route>
+
       <Route path="/login">
         <LoginFormPage />
       </Route>
+
       <Route path="/signup">
         <SignupFormPage />
       </Route>
-      <Route path="/posts/:postId">
+
+      <Route path="/@:username/posts/:postId">
         <PostShow />
       </Route>
+
       <Route path="/404">
         <FourOhFour />
       </Route>
+
     </Switch>
     </>
   );

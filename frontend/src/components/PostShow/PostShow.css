@@ -1,0 +1,19 @@
+.show-welcome {
+    margin-top: 8vh;
+    background-color: pink;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.left-show {
+    height: 100%;
+    width: 60%;
+    background-color:brown
+}
+
+.right-show {
+    height: 100%;
+    width: 40%;
+    background-color:gold;
+}

@@ -2,19 +2,58 @@ import "./PostIndex.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts, fetchPosts } from "../../store/post";
 import { getUsers, getUser, fetchUsers } from "../../store/user";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import { fetchBananas, createBanana, updateBanana } from "../../store/banana";
 
 const PostIndex = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const posts = useSelector(getPosts);
   const sessionUser = useSelector((state) => state.session.user);
-  let bananaLiked = false;
+  let banana;
+  const [bananaLike, setBananaLike] = useState(1)
+//   if (posts) {
+
+//   posts.forEach( post => {
+//   banana = document.getElementById(`button-banana-picture${post.id}`);
+//   for (let i = 0; i < post.bananas.length; i++) {
+//     if (
+//       post.bananas[i].giver_id === sessionUser.id &&
+//       post.bananas[i].on && banana
+//     ) {
+//       banana.src = "banana-liked.png";
+//     }
+//   }
+// }
+// )
+//   }
+
+posts.forEach( post => {
+  banana = document.getElementById(`button-banana-picture${post.id}`);
+  if (banana) {
+  for (let i = 0; i < post.bananas.length; i++) {
+    if ( 
+      sessionUser &&
+      post.bananas[i].giver_id === sessionUser.id &&
+      post.bananas[i].on
+    ) {
+      console.log("hihihi")
+      banana.src = "banana-liked.png";
+    } else if (!post.bananas[i].on && post.bananas) {
+      banana.src = "banana-unliked.png"
+    }
+  }
+}
+}
+)
+  
 
   useEffect(() => {
     dispatch(fetchPosts());
+    
+    
   }, []);
 
   if (posts) {
@@ -38,7 +77,7 @@ const PostIndex = () => {
               </div>
               <br />
               <div className="video-show-link">
-                <Link to={`/posts/${post.id}`}>
+                <Link to={`@${post.username}/posts/${post.id}`}>
                   <video className="videos" loop autoPlay muted controls>
                     <source src={post.videoUrl} type="video/mp4" />
                     video cannot be played
@@ -50,22 +89,28 @@ const PostIndex = () => {
                     className="index-button"
                     id="bananas"
                     onClick={() => {
-                      if (!sessionUser) {
-                        history.push("/login");
-                      } else {
-                        const banana = document.getElementById(
-                          `button-banana-picture${post.id}`
-                        );
-                        bananaLiked = !bananaLiked;
-
-                        if (bananaLiked) {
-                          banana.src = "banana-liked.png";
-                        } else {
-                          banana.src = "banana-unliked.png";
+                      let bananaExists = false;
+                      setBananaLike(bananaLike + 1);
+                      if (sessionUser) {
+                        for(let i = 0; i < post.bananas.length; i++) {
+                          
+                          if (post.bananas[i].giver_id === sessionUser.id) {
+                            
+                            dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
+                            bananaExists = true;
+                            break;
+                          }
                         }
+                        if (!bananaExists) {
+                          dispatch(createBanana({giver_id: sessionUser.id, receiver_id: post.author_id, post_id: post.id}))
+                        }
+                      } else {
+                        history.push("/login");
+                        
                       }
                     }}
                   >
+                    
                     <img
                       id={`button-banana-picture${post.id}`}
                       className="button-picture"
@@ -102,6 +147,7 @@ const PostIndex = () => {
   } else {
     return <div className="failure-div"></div>;
   }
-};
+}
+
 
 export default PostIndex;

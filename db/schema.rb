@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_10_194729) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_11_074904) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_194729) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bananas", force: :cascade do |t|
+    t.bigint "giver_id", null: false
+    t.bigint "receiver_id", null: false
+    t.bigint "post_id"
+    t.string "bananable_type", default: "Post"
+    t.bigint "bananable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "on", default: true
+    t.index ["bananable_type", "bananable_id"], name: "index_bananas_on_bananable"
+    t.index ["giver_id", "receiver_id", "post_id"], name: "index_bananas_on_giver_id_and_receiver_id_and_post_id", unique: true
+    t.index ["giver_id"], name: "index_bananas_on_giver_id"
+    t.index ["post_id"], name: "index_bananas_on_post_id"
+    t.index ["receiver_id"], name: "index_bananas_on_receiver_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "caption", null: false
     t.string "topic", null: false
@@ -70,5 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_194729) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bananas", "posts"
+  add_foreign_key "bananas", "users", column: "giver_id"
+  add_foreign_key "bananas", "users", column: "receiver_id"
   add_foreign_key "posts", "users", column: "author_id"
 end

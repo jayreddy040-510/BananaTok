@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show]
     resource :session, only: [:show, :create, :destroy]
     resources :posts, only: [:show, :index]
+    resources :bananas, only: [:index, :show, :create, :update]
   end
   # post 'api/test', to: 'application#test'
   get '*path', to: "static_pages#frontend_index"

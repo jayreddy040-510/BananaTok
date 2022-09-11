@@ -22,9 +22,8 @@ const receivePost = payload => {
 }
 
 export const getPosts = state => {
-    {
-        if (!state || !state.posts) return [];
-        return Object.values(state.posts)
+    { if (!state || !state.posts) return [];
+    return Object.values(state.posts)
     }
     
 }
@@ -67,12 +66,11 @@ const postsReducer = (state={}, action) => {
     switch (action.type) {
 
         case RECEIVE_POSTS: 
-            return {...action.payload}
+            return {...action.payload};
 
         case RECEIVE_POST:
-            nextState[action.payload.id] = action.payload;
-            return nextState;
-
+            return {...action.payload};
+            
 
         default:
             return nextState;
