@@ -68,6 +68,10 @@
     font-size: 18px;
     /* width: 33%; */
     line-height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 28.5%;
 }
 
 .postindex-tags {
@@ -125,3 +129,21 @@
     width: 80%;
     height: 80%;
 }
+
+.verified-react-icon {
+    color: #45D5EC;
+}
+
+
+@media only screen and (min-width: 1601px) {
+
+    .postindex-username {
+        width: 21.25%
+    }
+
+    .verified-react-icon {
+        scale: 0.95
+    }
+
+}
+

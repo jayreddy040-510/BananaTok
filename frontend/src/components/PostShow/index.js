@@ -26,6 +26,7 @@ const PostShow = () => {
     return(
         
         <div className="show-welcome">
+            {console.log(post.verified)}
             <div className="left-show">
                 <button className="show-close-button" onClick={()=> {history.push("/")}}>
                     {/* <img className="show-close-button-image" src="cancel.png" alt="Return to Home Page"></img> */}
