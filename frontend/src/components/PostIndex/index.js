@@ -61,12 +61,13 @@ posts.forEach( post => {
   if (posts) {
     return (
       <div className="post-index-div">
+        <br />
+        <br />
         {posts.map((post) => {
           if (post.verified)
           return (
             <div key={post.id} className="post-container">
-              <br />
-              <br />
+
               <div className="post-text-container"> 
                <p className="postindex-username">{post.username} <BsCheckCircleFill className="verified-react-icon"/></p>
                 <p className="postindex-caption">
