@@ -1,5 +1,6 @@
 .show-welcome {
-    margin-top: 8vh;
+    position:absolute;
+    z-index: 101;
     background-color: pink;
     width: 100vw;
     height: 100vh;
@@ -9,11 +10,146 @@
 .left-show {
     height: 100%;
     width: 60%;
-    background-color:brown
+    background-color:rgb(28, 27, 27);
+    display: flex;
+    justify-content: center;
 }
 
 .right-show {
     height: 100%;
     width: 40%;
     background-color:gold;
+    display: flex;
+    flex-direction: column;
+}
+
+.show-details {
+    width: 100%;
+    background-color:rosybrown;
+    height:40%;
+}
+
+.comment-section {
+    width: 100%;
+    background-color:burlywood;
+    height:50%;
+    position:none;
+}
+
+.add-comment {
+    width: 100%;
+    height: 10%;
+    background-color: antiquewhite;
+}
+
+.show-page-video {
+    object-fit: cover;
+    /* border-radius: 5px; */
+    width: 60%;
+    height: -webkit-fill-available;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.show-page-video-background {
+        object-fit: cover;
+        /* border-radius: 5px; */
+        width: 60%;
+        height: -webkit-fill-available;
+        /* cursor: pointer; */
+        opacity: 0.05;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        pointer-events: none;
+        scale: 1;
+        transform: perspective();
+}
+
+.show-close-button {
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    border: none;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align:center;
+    text-justify: center; */
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+
+}
+
+.show-close-button:hover {
+    transition: ease-in-out 0.4s;
+    opacity: 0.8;
+}
+
+.show-username-in-video {
+    font-family: PT Sans Caption;
+    width: fit-content;
+    height: fit-content;
+    color: floralwhite;
+    background-color: transparent;
+    pointer-events: none;
+    /* z-index: 5; */
+    position:absolute;
+    /* top:90%; */
+    bottom: 8%;
+    right: 56%;
+    z-index: 2;
+}
+
+
+
+.show-logo-button {
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    border: none;
+    background-color: black; 
+    padding: 0px;
+    text-align:center;
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-logo-button:hover {
+    cursor: auto;
+}
+
+.show-logo-button-image {
+    width: 80%;
+    height: 80%;
+}
+
+
+
+
+
+
+/* bigger screen res media query */
+
+@media only screen and (min-width: 1601px) {
+
+    .show-logo-button {
+        left: 4.5%;
+    }
+
+    .add-comment {
+        background-color: blueviolet;
+    }
+
+
 }

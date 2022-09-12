@@ -44,8 +44,8 @@ function NavBar() {
         return (
             <>
             <div className='nav'>
-                <div className='logo-title' onClick={handleClick}><img className='logo' src={require('./image.png')} alt='' />
-                    <img className='title' src={require('./title.png')} alt='' />
+                <div className='logo-title' onClick={handleClick}><img className='logo' src="/favicon.ico" alt='' />
+                    <img className='title' src="/title.png" alt='' />
                     </div>
                     <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
@@ -59,8 +59,8 @@ function NavBar() {
         <>
         <div className='nav'>
            
-                <div className='logo-title' onClick={handleClick}><img className='logo' src={require('./image.png')} alt=''/>
-                <img className='title' src={require('./title.png')} alt='' />
+                <div className='logo-title' onClick={handleClick}><img className='logo' src="/favicon.ico" alt=''/>
+                <img className='title' src="/title.png" alt='' />
                 </div>
             <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
