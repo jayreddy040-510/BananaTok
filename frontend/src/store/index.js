@@ -4,6 +4,7 @@ import session from './session'
 import postsReducer from "./post";
 import usersReducer from "./user";
 import bananasReducer from "./banana";
+import commentsReducer from "./comment";
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     posts: postsReducer,
     users: usersReducer,
     bananas: bananasReducer,
+    comments: commentsReducer
    
 
 })

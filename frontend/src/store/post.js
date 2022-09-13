@@ -1,11 +1,10 @@
 
 import { REMOVE_BANANA } from "./banana"
-import { REMOVE_COMMENT } from "./comment"
+import { REMOVE_COMMENT, CREATE_COMMENT } from "./comment"
 import csrfFetch from "./csrf"
 
 const RECEIVE_POSTS = 'posts/RECEIVE_POSTS'
-const RECEIVE_POST = 'posts/RECEIVE_POST'
-const CREATE_COMMENT = 'comments/CREATE_COMMENT'
+export const RECEIVE_POST = 'posts/RECEIVE_POST'
 
 const receivePosts = payload => {
     return (
@@ -112,29 +111,34 @@ export const createComment = comment => async dispatch => {
 }
 
 const postsReducer = (state={}, action) => {
+    // debugger/
     const nextState = { ...state }
-
     switch (action.type) {
-
+        
         case RECEIVE_POSTS: 
-            return {...action.payload};
-
+        return {...action.payload};
+        
         case RECEIVE_POST:
-            return {...action.payload};
+            nextState[action.payload.post.id] = action.payload.post
+            return nextState
+            
+            // case CREATE_COMMENT:
+                
+            //     // console.log(Object.values(action.payload)[0], "this one")
+            //     // Object.values(nextState)[0].comments[Object.values(action.payload)[0].id] = Object.values(action.payload)[0];
+            //     // return nextState;
+            //     // debugger
+            // nextState[action.payload.id].comments[action.payload.comment.id] = action.payload.comment
+            // return nextState
 
-        case CREATE_COMMENT:
-            nextState.posts[action.payload.id] = action.payload;
-            return nextState;
-
-
-        case REMOVE_COMMENT:
-            Object.values(nextState.posts).forEach( post => {
-                if (post.comments[action.payload]) { 
-                    delete post.comments[action.payload];
-                    return nextState;
-                }
-            })
-            return nextState;
+        // case REMOVE_COMMENT:
+        //     Object.values(nextState.posts).forEach( post => {
+        //         if (post.comments[action.payload]) { 
+        //             delete post.comments[action.payload];
+        //             return nextState;
+        //         }
+        //     })
+        //     return nextState;
 
 
         case REMOVE_BANANA:
