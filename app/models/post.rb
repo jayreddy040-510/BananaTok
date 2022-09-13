@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
     has_many :bananas, #as: :bananable, (after :bananas comma)
     class_name: "Banana"
+
+    has_many :comments
     
     belongs_to :author,
     class_name: "User"

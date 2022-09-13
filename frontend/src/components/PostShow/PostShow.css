@@ -27,18 +27,27 @@
     width: 100%;
     background-color:rosybrown;
     height:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .comment-section {
     width: 100%;
-    background-color:burlywood;
-    height:50%;
-    position:none;
+    background-color:rgb(248, 248, 248);
+    height:fill;
+    /* position:none; */
+    overflow-y: scroll;
+    margin-left: 7%;
+    border: 1px solid;
+    border-left: none;
+    border-top-color: rgb(219,219,219);
+    border-bottom-color: rgb(219,219,219);
 }
 
 .add-comment {
     width: 100%;
-    height: 10%;
+    height: 15%;
     background-color: antiquewhite;
 }
 
@@ -134,6 +143,198 @@
     height: 80%;
 }
 
+.show-details-subdiv {
+    width: 100%;
+    background-color: pink;
+    height: 17%;
+    margin-left: 7%;
+}
+
+.show-details-username-and {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 95%;
+}
+
+.show-details-username {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+
+}
+
+.show-details-username span {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.show-details-about {
+    font-family: Poppins;
+    font-weight: 300;
+}
+
+.comment-div {
+    height: 26%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+.comment-author-body {
+    height: 80%;
+    display:flex;
+    flex-direction: column;
+}
+
+.comment-body {
+    height: 50%;
+    overflow-wrap: break-word;
+}
+
+.comment-author {
+    height: 50%;
+    font-size: 18px;
+    font-family: Poppins;
+}
+
+.comment-time-ago {
+    font-size: 12px;
+    height: 20%;
+}
+
+.delete-comment {
+    /* align-self: flex-end;
+    justify-self:baseline; */
+
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 2px;
+
+}
+
+.delete-comment-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 150%;
+    right: 50%;
+    font-size: 16px;
+    width: 250%;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.delete-comment-container:hover {
+    color: rgb(255,196,12);
+    cursor: pointer
+}
+
+.hover-delete {
+    position: absolute;
+    height:75px;
+    width: 180px;
+    top: 20px;
+    right: 0px;
+    box-shadow: 0px 12px 19px -12px rgb(171, 169, 169);
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.delete-modal {
+    position: relative;
+}
+
+.comment-menu {
+    cursor: pointer;
+}
+
+.delete-modal {
+    opacity: 1;
+}
+
+.add-comment {
+    width: 100%;
+}
+.add-comment-subcontainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comment-input {
+    width: 80%;
+    height: 50%;
+    background-color: rgb(241,241,243);
+    border-radius: 11px;
+    font-size: 14px;
+    font-family: Poppins;
+    border-right: none;
+    
+}
+
+
+.comment-author-flexer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    height: auto;
+}
+
+.add-comment-button {
+    height: 45%;
+    width: 7%;
+    background-color: transparent;
+    border: none;
+    color: rgb(187,187,191);
+    font-size: 15px;
+    transform: translateX(50%);
+}
+
+.delete-modal {
+    font-size: 30px;
+}
+
+.search-bar-div1 {
+width: 100%;
+height: 100%;
+background-color: transparent;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius:4px;
+}
+
+#comment-input:focus-within {
+    border: solid;
+    border-color: rgb(121, 122, 125);
+    border-width: 0.5px;
+
+}
+
+.comment-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
 
 
 
@@ -149,7 +350,20 @@
 
     .add-comment {
         background-color: blueviolet;
+        height: 12%;
     }
+
+    .show-details-username {
+        width: fit-content;
+    }
+
+    .show-details-username-and {
+        height: 85%;
+    }
+    
+    /* .search-bar-div1 {
+        margin-left: 5%;
+    } */
 
 
 }

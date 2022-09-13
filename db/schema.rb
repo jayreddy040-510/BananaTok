@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_050336) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_204019) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_050336) do
     t.index ["receiver_id"], name: "index_bananas_on_receiver_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "body", limit: 280, null: false
+    t.bigint "giver_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["giver_id"], name: "index_comments_on_giver_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "caption", null: false
     t.string "topic", null: false
@@ -90,5 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_050336) do
   add_foreign_key "bananas", "posts"
   add_foreign_key "bananas", "users", column: "giver_id"
   add_foreign_key "bananas", "users", column: "receiver_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users", column: "giver_id"
   add_foreign_key "posts", "users", column: "author_id"
 end

@@ -8,5 +8,9 @@ class Banana < ApplicationRecord
 
     belongs_to :post
 
+    belongs_to :giver,
+    class_name: "User"
+
+
     belongs_to :bananable, polymorphic: true, optional: true
 end

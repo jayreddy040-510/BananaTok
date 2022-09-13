@@ -1,4 +1,3 @@
-import { icons } from "react-icons/lib";
 import "./SplashPage.css"
 import { BsHouse } from "react-icons/bs"
 import { HiOutlinePlus } from "react-icons/hi";

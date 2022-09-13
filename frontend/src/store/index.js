@@ -5,11 +5,14 @@ import postsReducer from "./post";
 import usersReducer from "./user";
 import bananasReducer from "./banana";
 
+
 const rootReducer = combineReducers({
     session,
     posts: postsReducer,
     users: usersReducer,
-    bananas: bananasReducer
+    bananas: bananasReducer,
+   
+
 })
 
 let enhancer;

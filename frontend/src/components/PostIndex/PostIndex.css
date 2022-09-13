@@ -55,10 +55,11 @@
 }
 
 .postindex-caption {
+    font-family: Poppins;
     width: 86.8%;
     font-weight: 300;
-    line-height: 22px;
-    font-size: 16px;
+    line-height: 18px;
+    font-size: 14px;
 
 }
 
@@ -72,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 28.5%;
+    width: fit-content;
 }
 
 .postindex-tags {
@@ -133,13 +134,41 @@
 
 .verified-react-icon {
     color: #45D5EC;
+    margin-left: 3px;
 }
 
+.in-video-text {
+    position:absolute;
+    left: 26%;
+    background-color: rgba(100,120,100,0);
+    display: flex;
+    height: 10%;
+    justify-content: flex-start;
+    align-content: center;
+    width: 25%;
+}
+
+.in-video-logo-images {
+    width: 40%;
+    height:80%;
+}
+
+#in-video-banana {
+    width: 20%;
+    height: 60%;
+    margin-bottom: 10px;
+}
+
+#in-video-bananatok {
+    width: 60%;
+    height: 90%;
+    opacity: 0;
+}
 
 @media only screen and (min-width: 1601px) {
 
     .postindex-username {
-        width: 21.25%
+        width: fit-content;
     }
 
     .verified-react-icon {
@@ -156,7 +185,7 @@
 
     .username-in-video {
         bottom: 10%;
-    right: 39%;
+    right: 42%;
     }
 
     .post-text-container {

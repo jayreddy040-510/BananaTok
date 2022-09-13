@@ -1,0 +1,4 @@
+const CREATE_COMMENT = 'comments/CREATE_COMMENT'
+const UPDATE_COMMENT = 'comments/UPDATE_COMMENT'
+export const REMOVE_COMMENT = 'comments/REMOVE_COMMENT'
+

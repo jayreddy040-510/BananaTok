@@ -5,7 +5,7 @@ import { getUsers, getUser, fetchUsers } from "../../store/user";
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import { fetchBananas, createBanana, updateBanana } from "../../store/banana";
+import { fetchBananas, createBanana, updateBanana, removeBanana } from "../../store/banana";
 import { BsCheckCircleFill } from "react-icons/bs";
 
 
@@ -87,6 +87,9 @@ posts.forEach( post => {
                     video cannot be played
                   </video>
                 </Link>
+                {/* <div className="in-video-text">
+                  <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
+                </div> */}
                 <div className="username-in-video">@{post.username}</div>
                 <div className="index-buttons">
                   <button
@@ -100,7 +103,8 @@ posts.forEach( post => {
                           
                           if (post.bananas[i].giver_id === sessionUser.id) {
                             
-                            dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
+                            // dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
+                            setBananaLike(bananaLike + 1)
                             bananaExists = true;
                             break;
                           }
@@ -122,7 +126,7 @@ posts.forEach( post => {
                     ></img>
                   </button>
                   <div className="index-button-number" id="banana-number">
-                    420
+                    {post.bananaCount}
                   </div>
                   <button
                     className="index-button"
@@ -137,7 +141,7 @@ posts.forEach( post => {
                     <img className="button-picture" src="gorilla.png"></img>
                   </button>
                   <div className="index-button-number" id="comment-number">
-                    69
+                    {post.commentCount}
                   </div>
                 </div>
               </div>
@@ -168,21 +172,25 @@ posts.forEach( post => {
                     video cannot be played
                   </video>
                 </Link>
+                {/* <div className="in-video-text">
+                  <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
+                </div> */}
                 <div className="username-in-video">@{post.username}</div>
                 <div className="index-buttons">
                   <button
                     className="index-button"
                     id="bananas"
                     onClick={() => {
+
                       let bananaExists = false;
-                      setBananaLike(bananaLike + 1);
                       if (sessionUser) {
                         for(let i = 0; i < post.bananas.length; i++) {
                           
                           if (post.bananas[i].giver_id === sessionUser.id) {
-                            
-                            dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
+                            dispatch(removeBanana(post.bananas[i].id))
+                            // dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
                             bananaExists = true;
+                            setBananaLike(bananaLike + 1)
                             break;
                           }
                         }
@@ -203,7 +211,7 @@ posts.forEach( post => {
                     ></img>
                   </button>
                   <div className="index-button-number" id="banana-number">
-                    420
+                    {post.bananaCount}
                   </div>
                   <button
                     className="index-button"
@@ -218,7 +226,7 @@ posts.forEach( post => {
                     <img className="button-picture" src="gorilla.png"></img>
                   </button>
                   <div className="index-button-number" id="comment-number">
-                    69
+                    {post.commentCount}
                   </div>
                 </div>
               </div>

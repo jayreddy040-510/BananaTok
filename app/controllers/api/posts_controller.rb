@@ -7,6 +7,7 @@ class Api::PostsController < ApplicationController
 
     def show
         @post = Post.find_by(id: params[:id])
+        
         if @post
             render :show
         else
