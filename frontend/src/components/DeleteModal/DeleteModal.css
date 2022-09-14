@@ -1,0 +1,7 @@
+.pb {
+    opacity: 0;
+    pointer-events: none;
+    padding: 3px;
+    transition: 0.2s ease-in-out;
+}
+

@@ -1,0 +1,21 @@
+.update-input {
+    line-height: 30px;
+    width: 80%;
+    display:none;
+    border-radius: 5px;
+    color: #161823;
+    font-size: 14px;
+
+}
+
+.modal-maneuver {
+    position: absolute;
+    right: 2%;
+    margin-top: 2.5%;
+    background-color: transparent;
+    width: 12%;
+    height: 10%;
+    pointer-events: none;
+    transition: 1s ease-in-out;
+}
+

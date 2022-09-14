@@ -113,7 +113,7 @@ export const updateComment = comment => async dispatch => {
 
     if (res.ok) {
     const payload = await res.json();
-    dispatch(makeComment(payload));
+    dispatch(changeComment(payload));
     }
 }
 
@@ -141,6 +141,10 @@ const commentsReducer = (state={}, action) => {
         case REMOVE_COMMENT:
             delete nextState[action.payload]
             return nextState;
+
+        case UPDATE_COMMENT:
+            return {...nextState, ...action.payload}
+
 
         default:
             return nextState;

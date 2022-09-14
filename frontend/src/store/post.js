@@ -122,25 +122,6 @@ const postsReducer = (state={}, action) => {
             nextState[action.payload.post.id] = action.payload.post
             return nextState
             
-            // case CREATE_COMMENT:
-                
-            //     // console.log(Object.values(action.payload)[0], "this one")
-            //     // Object.values(nextState)[0].comments[Object.values(action.payload)[0].id] = Object.values(action.payload)[0];
-            //     // return nextState;
-            //     // debugger
-            // nextState[action.payload.id].comments[action.payload.comment.id] = action.payload.comment
-            // return nextState
-
-        // case REMOVE_COMMENT:
-        //     Object.values(nextState.posts).forEach( post => {
-        //         if (post.comments[action.payload]) { 
-        //             delete post.comments[action.payload];
-        //             return nextState;
-        //         }
-        //     })
-        //     return nextState;
-
-
         case REMOVE_BANANA:
             for( let i = 0; i < nextState.bananas; i++) {
                 if (nextState.bananas[i].id === action.payload) {

@@ -12,8 +12,9 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        @comment = Commend.find_by(id: params[:id])
-        if @comment.update(comment)
+        # debugger
+        @comment = Comment.find_by(id: params[:id])
+        if @comment.update(comment_params)
             render :show
         else
             render json: {error: "couldn't update this comment"}, status: :unprocessable_entity
@@ -44,5 +45,10 @@ class Api::CommentsController < ApplicationController
     
     def comment_params
         params.require(:comment).permit(:giver_id, :post_id, :body)
+    end
+
+    def update_params
+        params.require(:comment).permit(:id, :giver_id, :post_id, :body)
+
     end
 end

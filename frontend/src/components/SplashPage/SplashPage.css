@@ -7,10 +7,15 @@
     justify-content: space-between;
 }
 
+html {
+    background-color: white;
+}
+
+
 .left-container1 {
     width: 23%;
 
-    background-color: greenyellow;
+    background-color: white;
     margin-left: 10%;
     display: flex;
     flex-direction: column;
@@ -18,13 +23,14 @@
     align-items: center;
     position: fixed;
     height: 100%;
+    overflow-y: scroll;
+
 }
 
 .right-container {
     margin-right: 10%;
     height: 100%;
     width: 57%;
-    background-color:aqua;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -50,7 +56,7 @@
 .spacer {
     height: 0.1px;
     opacity: 0.25;
-    background-color: rgb(20, 59, 216);
+    background-color: #F3F3F3;
     width: 95%;
 }
 
@@ -92,7 +98,7 @@
 .sub-div:hover {
     cursor: pointer;
     transition: 0.2s, ease-in-out;
-    background-color: rgb(249,249,249);
+    background-color: #F9F9F9;
     transition-property: background-color;
 }
 

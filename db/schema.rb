@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_204019) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_064957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_204019) do
     t.datetime "updated_at", null: false
     t.bigint "banana_count", default: 0
     t.bigint "comment_count", default: 0
+    t.string "tags", limit: 100, default: "#gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat #fullstackproject"
+    t.string "sound"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
@@ -90,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_204019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "verified", default: false
+    t.string "name", default: "Anonymous"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

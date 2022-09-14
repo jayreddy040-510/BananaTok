@@ -41,13 +41,13 @@
 }
 
 .post-text-container {
-    width: 48%;
+    width: 100%;
     margin-right: 0%;
 }
 
 .post-index-div {
     width: 100%;
-    background-color: red;
+    background-color: white;
     display: grid;
     flex-direction: column;
     justify-content: center;
@@ -76,6 +76,8 @@
     width: fit-content;
 }
 
+
+
 .postindex-tags {
     font-family: Poppins;
     font-weight: 400;
@@ -86,12 +88,11 @@
 .spacer2 {
     height: 1px;
     opacity: 0.5;
-    background-color: rgb(20, 59, 216);
+    background-color: #EBEBEC;
     width: 85%;
 }
 
 .index-buttons {
-    background-color: blue;
     width: 10%;
     height: 100%;
     /* z-index: 3; */
@@ -120,11 +121,16 @@
 }
 
 .index-button-number {
-    color:white;
+    color:#7D7D84;
     height: 4%;
     margin-top:10%;
-    /* background-color: purple; */
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+}
 
+.index-posttext {
+    width: 48%;
 }
 
 .button-picture {
@@ -134,7 +140,8 @@
 
 .verified-react-icon {
     color: #45D5EC;
-    margin-left: 3px;
+    margin-left: 2px;
+    /* margin-right: 3px; */
 }
 
 .in-video-text {
@@ -165,6 +172,20 @@
     opacity: 0;
 }
 
+.sound-icon {
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.sound-span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
 @media only screen and (min-width: 1601px) {
 
     .postindex-username {
@@ -188,7 +209,7 @@
     right: 42%;
     }
 
-    .post-text-container {
+    .index-posttext {
         width: 40%;
         margin-right: 0%;
     }

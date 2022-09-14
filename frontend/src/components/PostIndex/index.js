@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { fetchBananas, createBanana, updateBanana, removeBanana } from "../../store/banana";
-import { BsCheckCircleFill } from "react-icons/bs";
+import PostText from "../PostText";
+
 
 
 const PostIndex = () => {
@@ -64,21 +65,25 @@ posts.forEach( post => {
         <br />
         <br />
         {posts.map((post) => {
-          if (post.verified)
           return (
             <div key={post.id} className="post-container">
+              <div className="index-posttext">
+                <PostText post={post} />
+              </div>
 
-              <div className="post-text-container"> 
-               <p className="postindex-username">{post.username} <BsCheckCircleFill className="verified-react-icon"/></p>
+              {/* <div className="post-text-container"> 
+               <p className="postindex-username">{post.username} {post.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null}</p>
+               <br />
                 <p className="postindex-caption">
                   {post.caption}
                   <span className="postindex-tags">
-                    {" "}
-                    #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat
-                    #fullstackproject
+                    {` ${post.tags}`}
                   </span>
+                  <br />
+                  <br />
+                  <span className="sound-span"><IoMusicalNotes className="sound-icon"/> {post.sound ? post.sound : `original sound - ${post.username}`  }</span>
                 </p>
-              </div>
+              </div> */}
               <br />
               <div className="video-show-link">
                 <Link to={`@${post.username}/posts/${post.id}`}>
@@ -87,9 +92,6 @@ posts.forEach( post => {
                     video cannot be played
                   </video>
                 </Link>
-                {/* <div className="in-video-text">
-                  <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
-                </div> */}
                 <div className="username-in-video">@{post.username}</div>
                 <div className="index-buttons">
                   <button
@@ -126,7 +128,7 @@ posts.forEach( post => {
                     ></img>
                   </button>
                   <div className="index-button-number" id="banana-number">
-                    {post.bananaCount}
+                    {post.bananaCount > 1000 ? String(post.bananaCount).substring(0,3) + 'K' : post.bananaCount }
                   </div>
                   <button
                     className="index-button"
@@ -134,99 +136,15 @@ posts.forEach( post => {
                       if (!sessionUser) {
                         history.push("/login");
                       } else {
-                        history.push(`/posts/${post.id}`);
+                        history.push(`/@${post.username}/posts/${post.id}`);
                       }
                     }}
                   >
                     <img className="button-picture" src="gorilla.png"></img>
                   </button>
                   <div className="index-button-number" id="comment-number">
-                    {post.commentCount}
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="spacer2"></div>
-            </div>
-          )
-          else return ((
-            <div key={post.id} className="post-container">
-              <br />
-              <br />
-              <div className="post-text-container"> 
-                <p className="postindex-username">{post.username}</p> 
-                <p className="postindex-caption">
-                  {post.caption}
-                  <span className="postindex-tags">
-                    {" "}
-                    #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat
-                    #fullstackproject
-                  </span>
-                </p>
-              </div>
-              <br />
-              <div className="video-show-link">
-                <Link to={`@${post.username}/posts/${post.id}`}>
-                  <video className="videos" loop autoPlay muted controls>
-                    <source src={post.videoUrl} type="video/mp4" />
-                    video cannot be played
-                  </video>
-                </Link>
-                {/* <div className="in-video-text">
-                  <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
-                </div> */}
-                <div className="username-in-video">@{post.username}</div>
-                <div className="index-buttons">
-                  <button
-                    className="index-button"
-                    id="bananas"
-                    onClick={() => {
+                  {post.commentCount > 1000 ? String(post.commentCount).substring(0,3) + 'K' : post.commentCount }
 
-                      let bananaExists = false;
-                      if (sessionUser) {
-                        for(let i = 0; i < post.bananas.length; i++) {
-                          
-                          if (post.bananas[i].giver_id === sessionUser.id) {
-                            dispatch(removeBanana(post.bananas[i].id))
-                            // dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
-                            bananaExists = true;
-                            setBananaLike(bananaLike + 1)
-                            break;
-                          }
-                        }
-                        if (!bananaExists) {
-                          dispatch(createBanana({giver_id: sessionUser.id, receiver_id: post.author_id, post_id: post.id}))
-                        }
-                      } else {
-                        history.push("/login");
-                        
-                      }
-                    }}
-                  >
-                    
-                    <img
-                      id={`button-banana-picture${post.id}`}
-                      className="button-picture"
-                      src="banana-unliked.png"
-                    ></img>
-                  </button>
-                  <div className="index-button-number" id="banana-number">
-                    {post.bananaCount}
-                  </div>
-                  <button
-                    className="index-button"
-                    onClick={() => {
-                      if (!sessionUser) {
-                        history.push("/login");
-                      } else {
-                        history.push(`/posts/${post.id}`);
-                      }
-                    }}
-                  >
-                    <img className="button-picture" src="gorilla.png"></img>
-                  </button>
-                  <div className="index-button-number" id="comment-number">
-                    {post.commentCount}
                   </div>
                 </div>
               </div>
@@ -234,7 +152,92 @@ posts.forEach( post => {
               <div className="spacer2"></div>
             </div>
           )
-          )
+          // else return ((
+          //   <div key={post.id} className="post-container">
+          //     <br />
+          //     <br />
+          //     <div className="post-text-container"> 
+          //       <p className="postindex-username">{post.username}</p> 
+          //       <p className="postindex-caption">
+          //         {post.caption}
+          //         <span className="postindex-tags">
+          //           {" "}
+          //           #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat
+          //           #fullstackproject
+          //         </span>
+          //       </p>
+          //     </div>
+          //     <br />
+          //     <div className="video-show-link">
+          //       <Link to={`@${post.username}/posts/${post.id}`}>
+          //         <video className="videos" loop autoPlay muted controls>
+          //           <source src={post.videoUrl} type="video/mp4" />
+          //           video cannot be played
+          //         </video>
+          //       </Link>
+          //       {/* <div className="in-video-text">
+          //         <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
+          //       </div> */}
+          //       <div className="username-in-video">@{post.username}</div>
+          //       <div className="index-buttons">
+          //         <button
+          //           className="index-button"
+          //           id="bananas"
+          //           onClick={() => {
+
+          //             let bananaExists = false;
+          //             if (sessionUser) {
+          //               for(let i = 0; i < post.bananas.length; i++) {
+                          
+          //                 if (post.bananas[i].giver_id === sessionUser.id) {
+          //                   dispatch(removeBanana(post.bananas[i].id))
+          //                   // dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
+          //                   bananaExists = true;
+          //                   setBananaLike(bananaLike + 1)
+          //                   break;
+          //                 }
+          //               }
+          //               if (!bananaExists) {
+          //                 dispatch(createBanana({giver_id: sessionUser.id, receiver_id: post.author_id, post_id: post.id}))
+          //               }
+          //             } else {
+          //               history.push("/login");
+                        
+          //             }
+          //           }}
+          //         >
+                    
+          //           <img
+          //             id={`button-banana-picture${post.id}`}
+          //             className="button-picture"
+          //             src="banana-unliked.png"
+          //           ></img>
+          //         </button>
+          //         <div className="index-button-number" id="banana-number">
+          //           {post.bananaCount}
+          //         </div>
+          //         <button
+          //           className="index-button"
+          //           onClick={() => {
+          //             if (!sessionUser) {
+          //               history.push("/login");
+          //             } else {
+          //               history.push(`/@${post.username}/posts/${post.id}`);
+          //             }
+          //           }}
+          //         >
+          //           <img className="button-picture" src="gorilla.png"></img>
+          //         </button>
+          //         <div className="index-button-number" id="comment-number">
+          //           {post.commentCount}
+          //         </div>
+          //       </div>
+          //     </div>
+          //     <br />
+          //     <div className="spacer2"></div>
+          //   </div>
+          // )
+          // )
         })}
       </div>
     );

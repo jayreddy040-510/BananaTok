@@ -18,11 +18,11 @@ ApplicationRecord.transaction do
   end
 
 
-  user1 = User.create!(password: "dieguccio", username: "dieguccio", about_me: "If it's not Gucci then it's not gucci ", email: "dieguccio@appacademy.com", bananas_count: 1000000, follows_count: 20)
+  user1 = User.create!(name: "dee-ayy-go", password: "dieguccio", username: "dieguccio", about_me: "If it ain't Gucci, then it ain't me. Taylor Swift is the Madonna of our era, don't @ me. SF transplant. Dead inside.", email: "dieguccio@appacademy.com", bananas_count: 1000000, follows_count: 20)
 
-  user2 = User.create!(password: "love2love", username: "Celeste&Josh<33", about_me: "Hey y'all! We're Celeste and Josh and welcome to our BananaTok page! Follow for daily videos of life in the beautiful city of Paris!", email: "celestial91@gmail.com", bananas_count: 3568, follows_count: 823)
+  user2 = User.create!(name:"CelJohn4Ever", password: "love2love", username: "Celeste&Josh<33", about_me: "Hey y'all! We're Celeste and Josh and welcome to our BananaTok page! Follow for daily videos of life in the beautiful city of Paris!", email: "celestial91@gmail.com", bananas_count: 3568, follows_count: 823)
 
-  user3 = User.create!(password: "blackisbeautiful", username: "BlackGirlMagic", about_me: "We post daily black creator content to spread daily positive affirmations that black is, and always has been, beautiful", email: "allblackeverything@appacademy.com", bananas_count: 1567439, follows_count: 88332)
+  user3 = User.create!(name:"Sarah",password: "blackisbeautiful", username: "BlackGirlMagic", about_me: "We post daily black creator content to spread daily positive affirmations that black is, and always has been, beautiful", email: "allblackeverything@appacademy.com", bananas_count: 1567439, follows_count: 88332)
 
   # user4 = User.create!(password: "silencio", username: "art_of_silence", about_me: "The gift of hearing is best appreciated in its absence - I like to post silent things. Follow me on Bananagram! ", email: "b.broheim2@gmail.com", bananas_count: 23, follows_count: 2)
 

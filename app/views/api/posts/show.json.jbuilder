@@ -1,12 +1,12 @@
 
 json.post do
-        json.extract! @post, :id, :caption, :topic, :author_id, :banana_count, :comment_count
-        json.extract! @post.author, :username, :verified, :about_me
+        json.extract! @post, :id, :caption, :topic, :author_id, :banana_count, :comment_count, :sound, :tags
+        json.extract! @post.author, :username, :verified, :about_me, :name
 
-        json.bananas @post.bananas do 
             if @post.video.attached?
                 json.video_url @post.video.url
             end
+        json.bananas @post.bananas do 
         end 
 end
 

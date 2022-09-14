@@ -1,7 +1,7 @@
 .show-welcome {
     position:absolute;
     z-index: 101;
-    background-color: pink;
+    background-color: floralwhite;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -18,19 +18,31 @@
 .right-show {
     height: 100%;
     width: 40%;
-    background-color:gold;
+    background-color:white;
     display: flex;
     flex-direction: column;
 }
 
 .show-details {
     width: 100%;
-    background-color:rosybrown;
+    background-color: white;
     height:40%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.show-posttext {
+    width: 100%;
+    margin-left: 7%;
+}
+
+
+/* .post-text-container {
+    width: 100%;
+    margin-right: 0%;
+    margin-left: 7%;
+} */
 
 .comment-section {
     width: 100%;
@@ -38,17 +50,56 @@
     height:fill;
     /* position:none; */
     overflow-y: scroll;
-    margin-left: 7%;
+    /* margin-left: 7%; */
     border: 1px solid;
     border-left: none;
     border-top-color: rgb(219,219,219);
     border-bottom-color: rgb(219,219,219);
+    /* display: flex; */
+    /* flex-direction: column-reverse; */
+}
+
+#bar, #bar-test
+{
+    position: absolute;
+
+
+    top: -50px;
+    left: 25%;
+    width: 50%;
+    height: 5%;
+    z-index: 200;
+    background-color: #3b5598;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: floralwhite;
+    -webkit-animation: bar 5s ease-in-out;
+}
+
+@keyframes bar
+{
+  0% {
+    top: -50px;
+
+  }
+
+  50% {
+    top: 0px;
+  }
+
+  75% {
+    top: 0px;
+  }
+  100% {
+    top: -50px;
+  }
 }
 
 .add-comment {
     width: 100%;
     height: 15%;
-    background-color: antiquewhite;
+    background-color: white;
 }
 
 .show-page-video {
@@ -145,7 +196,7 @@
 
 .show-details-subdiv {
     width: 100%;
-    background-color: pink;
+    background-color: white;
     height: 17%;
     margin-left: 7%;
 }
@@ -153,8 +204,8 @@
 .show-details-username-and {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 95%;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .show-details-username {
@@ -174,6 +225,7 @@
 .show-details-about {
     font-family: Poppins;
     font-weight: 300;
+    font-size: 14px;
 }
 
 .comment-div {
@@ -181,6 +233,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 7%;
 
 
 }
@@ -197,8 +250,9 @@
 }
 
 .comment-author {
-    height: 50%;
+    height: 70%;
     font-size: 18px;
+    font-weight: 600;
     font-family: Poppins;
 }
 
@@ -219,23 +273,33 @@
 
 }
 
-.delete-comment-container {
+.delete-edit-container {
     position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 150%;
-    right: 50%;
+    top: 55px;
+    right: 18px;
     font-size: 16px;
-    width: 250%;
+    width: fit-content;
     font-weight: 600;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    /* pointer-events: none; */
 }
 
-.delete-comment-container:hover {
+#delete-comment-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    /* pointer-events: none; */
+    /* justify-content: center; */
+}
+
+#delete-comment-container:hover {
     color: rgb(255,196,12);
-    cursor: pointer
+    cursor: pointer;
+
 }
 
 .hover-delete {
@@ -246,7 +310,7 @@
     right: 0px;
     box-shadow: 0px 12px 19px -12px rgb(171, 169, 169);
     background-color: transparent;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 
@@ -256,11 +320,21 @@
 
 .comment-menu {
     cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    font-size: 30px;
+    position: relative;
+    transition: 0.2s ease-in-out
 }
 
-.delete-modal {
-    opacity: 1;
+.pb {
+    position: absolute;
+    right: 2%;
+    margin-bottom: 2%;
+    /* top: 28%; */ 
 }
+
+
 
 .add-comment {
     width: 100%;
@@ -288,18 +362,20 @@
 .comment-author-flexer {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 95%;
     align-items: center;
     height: auto;
 }
 
 .add-comment-button {
+    font-family: Poppins;
     height: 45%;
     width: 7%;
     background-color: transparent;
     border: none;
     color: rgb(187,187,191);
     font-size: 15px;
+    font-weight: 500;
     transform: translateX(50%);
 }
 
@@ -334,6 +410,28 @@ border-radius:4px;
     
 }
 
+.test-input-div {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    position: none;
+    opacity: 0.3;
+    flex-basis: 0;
+}
+
+.test-input {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.test-input-button {
+    color: rgb(40,40,40);
+    width: 30%;
+    height: 50%;
+}
+
 
 
 
@@ -349,7 +447,6 @@ border-radius:4px;
     }
 
     .add-comment {
-        background-color: blueviolet;
         height: 12%;
     }
 
@@ -358,7 +455,17 @@ border-radius:4px;
     }
 
     .show-details-username-and {
-        height: 85%;
+        height: 95%;
+    }
+
+    .show-details-username span {
+        font-family: Poppins;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .show-details-about {
+        font-size: 17px;
     }
     
     /* .search-bar-div1 {

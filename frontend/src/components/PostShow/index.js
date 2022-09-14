@@ -8,6 +8,9 @@ import FourOhFour from "../404/index.js"
 import { BsCheckCircleFill, BsSearch } from 'react-icons/bs';
 import * as sessionActions from '../../store/session';
 import CommentIndex from '../CommentIndex';
+import EmojiPicker from 'emoji-picker-react';
+import PostText from '../PostText';
+
 
 
 
@@ -22,10 +25,27 @@ const PostShow = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [banana, setBanana] = useState(1)
     const [body,setBody] = useState('')
+    const input = document.querySelector("#comment-input")
 
     const addCommentHandler = (e) => {
+        const addCommentButton = document.querySelector(".add-comment-button")
         e.preventDefault();
         dispatch(createComment({body: body, post_id: post.id, giver_id: sessionUser.id}))
+        input.value = ''
+        addCommentButton.style.color = "rgb(187,187,191)"
+    }
+
+    // const onEmojiClick
+
+    const changeHandler = (e) => {
+        const addCommentButton = document.querySelector(".add-comment-button")
+        setBody(e.target.value);
+        // console.log(e.target.value.length)
+        return e.target.value.length > 1 ? addCommentButton.style.color = "rgb(255,196,12)" : "rgb(187,187,191)"
+    }
+
+    const handleCommentPostClick = () => {
+
     }
 
 
@@ -40,6 +60,7 @@ const PostShow = () => {
         return(
             
             <div className="show-welcome">
+                {/* <div id="bar-test">Deleted</div> */}
                 
 
                 <div className="left-show">
@@ -60,7 +81,7 @@ const PostShow = () => {
                 </div>
                 <div className="right-show">
                     <div className="show-details">
-                        <div className="show-details-subdiv"></div>
+                        {/* <div className="show-details-subdiv"></div>
                         <div className="show-details-subdiv">
                             <div className="show-details-username-and">
                                 <div className='show-details-username'><span>{`${post.username}`}</span> {post.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null}</div>
@@ -70,7 +91,10 @@ const PostShow = () => {
                         <div className="show-details-subdiv"></div>
                         <div className="show-details-subdiv"></div>
                         <div className="show-details-subdiv"></div>
-                        <div className="show-details-subdiv"></div>
+                        <div className="show-details-subdiv"></div> */}
+                        <div className="show-posttext">
+                            <PostText post={post} />
+                        </div>
                     </div>
                     <div className="comment-section">
 
@@ -81,8 +105,8 @@ const PostShow = () => {
                         <div className="add-comment-subcontainer">
                             <form className='comment-form'  onSubmit={addCommentHandler}>
                                 <div className='search-bar-div1' >
-                                    <input id="comment-input" value={body} onChange={(e) => {setBody(e.target.value);}} className="search-bar" type="text" placeholder='  Add Comment (80 Character Limit)' maxLength="80"/>
-                                    <button className='add-comment-button'>Post</button>
+                                    <input id="comment-input" value={body} onChange={changeHandler} className="search-bar" type="text" placeholder='  Add Comment (80 Character Limit)' maxLength="80"/>
+                                    <button className='add-comment-button' onClick={handleCommentPostClick}>Post</button>
                                 </div>
                             </form>
                         </div>
