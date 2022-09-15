@@ -75,3 +75,12 @@ input {
     width: 40%;
 
 }
+
+.signup-span {
+    color: rgb(255,196,12);
+    font-weight: 700;
+}
+
+.signup-span:hover {
+    cursor: pointer;
+}

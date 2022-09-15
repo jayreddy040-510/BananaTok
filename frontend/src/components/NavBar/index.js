@@ -11,9 +11,14 @@ import { BsSearch } from "react-icons/bs";
 
 function NavBar() {
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
 
     const navigateToLogin = () => {
         history.push('/login')
+    }
+
+    const navigateToLogin2 = () => {
+        sessionUser ? history.push("/upload") : history.push('/login')
     }
 
     const handleClick = () => {
@@ -21,7 +26,6 @@ function NavBar() {
 
     }
 
-  const sessionUser = useSelector(state => state.session.user);
 
 
     const dispatch = useDispatch();
@@ -64,7 +68,7 @@ function NavBar() {
                 </div>
             <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
-                <div><button className='upload-button' onClick={navigateToLogin}><span className='plus'>+ </span> Upload</button></div>
+                <div><button className='upload-button' onClick={navigateToLogin2}><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>
                 <div><button className='log-in-buttons' onClick={demoLogin}>Demo Log in</button></div>
             </div>

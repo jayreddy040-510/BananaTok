@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './LoginForm.css';
 
 export const videos = ["1.mp4", "2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4"];
@@ -13,6 +13,7 @@ function LoginFormPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
 
 
@@ -66,7 +67,16 @@ function LoginFormPage() {
         />
 
       <button className='login-button'>Log In</button>
+      {/* <br />
+      <br />
+      <br />
+      <br />
+      <span>Don't have an account? Sign up!</span> */}
     </form>
+    <br />
+    <br />
+    <br />
+  <p>Don't have an account? <span className='signup-span' onClick={() => {history.push("/signup")}}>Sign up here!</span></p> 
     </div>
     <div className="welcome-video-container">
         <video width="100%" height="100%"  loop autoPlay muted>

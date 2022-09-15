@@ -1,7 +1,11 @@
 .pb {
-    opacity: 0;
-    pointer-events: none;
-    padding: 3px;
     transition: 0.2s ease-in-out;
+    position: absolute;
+    height: 90px;
+    width: 180px;
+    top:50%;
+    right: 2%;
+    margin-bottom: 2%;
+    display: none;
 }
 

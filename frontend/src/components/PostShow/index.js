@@ -2,14 +2,17 @@ import './PostShow.css'
 import { useParams, useHistory} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchPost, getPost, deleteComment, createComment } from '../../store/post';
+import { fetchPost, getPost, createComment, deletePost } from '../../store/post';
 import { CgClose } from "react-icons/cg";
 import FourOhFour from "../404/index.js"
-import { BsCheckCircleFill, BsSearch } from 'react-icons/bs';
+import { AiOutlineSmile } from 'react-icons/ai';
 import * as sessionActions from '../../store/session';
 import CommentIndex from '../CommentIndex';
 import EmojiPicker from 'emoji-picker-react';
 import PostText from '../PostText';
+import { TiPencil } from 'react-icons/ti'
+
+
 
 
 
@@ -26,6 +29,23 @@ const PostShow = () => {
     const [banana, setBanana] = useState(1)
     const [body,setBody] = useState('')
     const input = document.querySelector("#comment-input")
+    const [showPicker, setShowPicker] = useState(false);
+
+
+
+
+    const handleEmojiClick = (e, emojiObject) => {
+
+        setBody(prevInput => prevInput + emojiObject.emoji);
+        setShowPicker(false);
+    }
+
+    const deletePostHandler = () => {
+        if (window.confirm('Are you sure you wish to delete this post? This action is irreversible.')) {
+            dispatch(deletePost(post.id))
+        history.push('/')
+        }
+    }
 
     const addCommentHandler = (e) => {
         const addCommentButton = document.querySelector(".add-comment-button")
@@ -36,6 +56,8 @@ const PostShow = () => {
     }
 
     // const onEmojiClick
+
+
 
     const changeHandler = (e) => {
         const addCommentButton = document.querySelector(".add-comment-button")
@@ -61,6 +83,20 @@ const PostShow = () => {
             
             <div className="show-welcome">
                 {/* <div id="bar-test">Deleted</div> */}
+                <div className="modal-container-post-update">
+                    <div className="modal-update">
+                        <form className="update-post-form">
+                            <label>Caption
+                                <input type="text" className="update-caption" />
+                            </label>
+                            <label>Tags
+                                <input type="text" className="update-tags" />
+                            </label>
+                            <buttono>Update Post</button>
+                        </form>
+                    </div>
+                </div>
+                {sessionUser.id === post.authorId ? <span className="del-button" onClick={deletePostHandler}>Delete Post</span> : null }
                 
 
                 <div className="left-show">
@@ -93,7 +129,29 @@ const PostShow = () => {
                         <div className="show-details-subdiv"></div>
                         <div className="show-details-subdiv"></div> */}
                         <div className="show-posttext">
-                            <PostText post={post} />
+                                <PostText post={post} index={false} />
+                                <div className="banana-comment-show-div">
+                                <div className="banana-button-div">
+                                <button className="index-button" id="bananas-show">
+                                    <img id="show-banana" src="/banana-unliked.png"></img>
+                                </button>
+                                <span className="banana-show-count">{post.bananaCount > 1000 ? String(post.bananaCount).substring(0,3) + 'K' : post.bananaCount }</span>
+                            </div>
+                            <div className="banana-button-div">
+                                <button className="index-button" id="bananas-show">
+                                    <img style={{cursor: 'auto'}} id="show-banana" src="/chat-bubble.png"></img>
+                                </button>
+                                <span className="banana-show-count">{post.commentCount > 1000 ? String(post.commentCount).substring(0,3) + 'K' : post.commentCount }</span>
+                            </div>
+
+                            {sessionUser.id === post.authorId ? (<div className="banana-button-div">
+                                <button className="index-button" id="bananas-show">
+                                    <TiPencil id="edit-post-img"/>
+                                </button>
+                                <span id="edit-post-span" className="banana-show-count">Edit Post</span>
+                            </div>) : null}
+                            
+                        </div>
                         </div>
                     </div>
                     <div className="comment-section">
@@ -105,7 +163,8 @@ const PostShow = () => {
                         <div className="add-comment-subcontainer">
                             <form className='comment-form'  onSubmit={addCommentHandler}>
                                 <div className='search-bar-div1' >
-                                    <input id="comment-input" value={body} onChange={changeHandler} className="search-bar" type="text" placeholder='  Add Comment (80 Character Limit)' maxLength="80"/>
+                                    <input id="comment-input" value={body} onChange={changeHandler} className="search-bar" type="text" placeholder='  Add Comment (80 Character Limit)' maxLength="80"/><AiOutlineSmile id="ai" onClick={() => setShowPicker(val => !val)}/>
+                                {showPicker && <EmojiPicker style={{position: "absolute"}} classname="emoji-picker" pickerStyle={{width:'15%'}} onEmojiClick={handleEmojiClick} />}
                                     <button className='add-comment-button' onClick={handleCommentPostClick}>Post</button>
                                 </div>
                             </form>

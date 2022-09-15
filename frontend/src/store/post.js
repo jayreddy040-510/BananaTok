@@ -5,9 +5,42 @@ import csrfFetch from "./csrf"
 
 const RECEIVE_POSTS = 'posts/RECEIVE_POSTS'
 export const RECEIVE_POST = 'posts/RECEIVE_POST'
+export const CREATE_POST = '/posts/CREATE_POST'
+export const REMOVE_POST = '/posts/REMOVE_POST'
+export const UPDATE_POST = '/posts/UPDATE_POST'
 
 const receivePosts = payload => {
     return (
+        {
+            type: RECEIVE_POSTS,
+            payload
+        }
+    )
+}
+
+const removePost = payload => {
+    return (
+        {
+            type: REMOVE_POST,
+            payload
+        }
+    )
+}
+
+const changePost = payload => {
+    return (
+        {
+            type: UPDATE_POST,
+            payload
+        }
+    )
+}
+
+
+const makePost = payload => {
+
+    return (
+
         {
             type: RECEIVE_POSTS,
             payload
@@ -87,6 +120,25 @@ export const fetchPost = (postId) => async dispatch => {
     }
 }
 
+export const deletePost = (postId) => async dispatch => {
+    const res = await csrfFetch(`/api/posts/${postId}`, {
+        method: "DELETE"
+    })
+    dispatch(removePost(postId));
+}
+
+export const updatePost = post => async dispatch => {
+    const res = await csrfFetch(`/api/posts/${post}`, {
+        method: "PATCH",
+        body: JSON.stringify(post),
+        headers: {
+            "Content-Type": "application/json",
+            "Accepted": "application/json"
+        }
+    })
+}
+
+
 export const deleteComment = (commentId) => async dispatch => {
     const res = await csrfFetch(`/api/comments/${commentId}`, {
         method: "DELETE"
@@ -103,10 +155,25 @@ export const createComment = comment => async dispatch => {
             "Accepted": "application/json"
         }
     })
+    if (res.ok) {
+        const payload = await res.json();
+        dispatch(makeComment(payload));
+        }
+    }
+
+export const createPost = post => async dispatch => {
+        const res = await csrfFetch(`/api/posts`, {
+            method: "POST",
+            body: JSON.stringify(post),
+            headers: {
+                "Content-Type": "application/json",
+                "Accepted": "application/json"
+            }
+        })
 
     if (res.ok) {
     const payload = await res.json();
-    dispatch(makeComment(payload));
+    dispatch(makePost(payload));
     }
 }
 
@@ -121,6 +188,18 @@ const postsReducer = (state={}, action) => {
         case RECEIVE_POST:
             nextState[action.payload.post.id] = action.payload.post
             return nextState
+
+        case CREATE_POST:
+            nextState[action.payload.post.id] = action.payload.post
+            return nextState
+
+        case REMOVE_POST:
+            delete nextState.posts[action.payload]
+            return nextState
+
+        case UPDATE_POST:
+            return {...nextState, ...action.payload}
+
             
         case REMOVE_BANANA:
             for( let i = 0; i < nextState.bananas; i++) {

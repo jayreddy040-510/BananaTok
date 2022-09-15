@@ -38,9 +38,10 @@ const DeleteModal = (props) => {
 
     const handleDeleteComment = () => {
 
+        console.log(comment)
+
         dispatch(deleteComment(comment.id))
-        document.querySelector("#bar-test").id = "bar"
-        document.querySelector("#bar").id = "bar-test"
+
 
     }
 
@@ -60,9 +61,9 @@ const DeleteModal = (props) => {
 return (
 
 <>
-    <div id={`pb${comment.id}`} className="pb" onMouseEnter={handleDeleteModalMouseEnter}>
+    <div id={`pb${comment.id}`} className="pb" >
         <img src='/delete_modal.png' className='hover-delete'></img>
-        <div className="delete-edit-container" onMouseEnter={handleDeleteModalMouseEnter}>
+        <div className="delete-edit-container">
             <span id="delete-comment-container" onClick={handleUpdateClick}>Update <TiPencil className='delete-comment' /></span> |
             <span id="delete-comment-container" onClick={handleDeleteComment} >Delete <BiTrash className='delete-comment' /></span>
         </div>

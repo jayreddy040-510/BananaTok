@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import PostShow from "./components/PostShow";
 import FourOhFour from "./components/404";
+import CreatePostForm from "./components/CreatePostForm";
 
 
 
@@ -26,6 +27,10 @@ function App() {
 
       <Route path="/signup">
         <SignupFormPage />
+      </Route>
+
+      <Route path="/upload">
+        <CreatePostForm />
       </Route>
 
       <Route path="/@:username/posts/:postId">

@@ -8,12 +8,14 @@ import { GiChopsticks, GiMusicalNotes } from "react-icons/gi"
 import { HiOutlineSparkles } from "react-icons/hi"
 import {TbPaw} from "react-icons/tb"
 import { MdOutlineSportsBasketball } from "react-icons/md"
+import * as sessionActions from '../../store/session';
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 
 const SplashPage = () => {
-
-
-
+    const sessionUser = useSelector(state => state.session.user)
+    const history = useHistory();
 
 
 
@@ -39,6 +41,12 @@ const SplashPage = () => {
             </div>
 
             <div className="spacer"></div>
+
+    {sessionUser ? null : <div className="signup-container"><span className="signup-text">You don't seem to be logged in! Sign up or login to upload and comment on videos!
+    </span><button className="signup-button" onClick={() => { history.push("./signup")}}>Sign up</button></div>}
+    
+    <div className="spacer"></div>
+
 
             <div className="topics-container">
                     <span className="container-subheading">Popular Topics</span>

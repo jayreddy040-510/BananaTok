@@ -1,6 +1,6 @@
 
 json.post do
-        json.extract! @post, :id, :caption, :topic, :author_id, :banana_count, :comment_count, :sound, :tags
+        json.extract! @post, :id, :caption, :topic, :author_id, :banana_count, :comment_count, :sound, :tags, :created_at
         json.extract! @post.author, :username, :verified, :about_me, :name
 
             if @post.video.attached?
@@ -13,7 +13,7 @@ end
 json.comments do 
     @post.comments.each do |comment|
         json.set! comment.id do
-        json.extract! comment, :id, :body, :giver_id, :created_at
+        json.extract! comment, :id, :body, :giver_id, :created_at, :updated_at
         json.extract! comment.giver, :username, :verified
         end
     end 

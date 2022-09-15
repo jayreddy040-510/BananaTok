@@ -68,7 +68,7 @@ posts.forEach( post => {
           return (
             <div key={post.id} className="post-container">
               <div className="index-posttext">
-                <PostText post={post} />
+                <PostText post={post} index={true}/>
               </div>
 
               {/* <div className="post-text-container"> 
@@ -86,12 +86,16 @@ posts.forEach( post => {
               </div> */}
               <br />
               <div className="video-show-link">
-                <Link to={`@${post.username}/posts/${post.id}`}>
+                {sessionUser ? <Link to={`@${post.username}/posts/${post.id}`}>
                   <video className="videos" loop autoPlay muted controls>
                     <source src={post.videoUrl} type="video/mp4" />
                     video cannot be played
                   </video>
-                </Link>
+                </Link> : <Link to={`/login`}>
+                  <video className="videos" loop autoPlay muted controls>
+                    <source src={post.videoUrl} type="video/mp4" />
+                    video cannot be played
+                  </video></Link> }
                 <div className="username-in-video">@{post.username}</div>
                 <div className="index-buttons">
                   <button

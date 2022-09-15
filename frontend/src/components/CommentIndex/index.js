@@ -20,7 +20,7 @@ const CommentIndex = (props) => {
     return (
         
         <>
-    {Object.values(comments).reverse().map((comment,idx) => <CommentIndexItem commentId={comment.id} key={comment.id} comment={comment} post={props.post}/>)}
+    {Object.values(comments).reverse().map((comment) => <CommentIndexItem commentId={comment.id} key={Math.random() * Math.random() * Math.random()} comment={comment} post={props.post}/>)}
         </>
 
     )

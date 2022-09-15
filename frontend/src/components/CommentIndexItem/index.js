@@ -8,6 +8,7 @@ import FourOhFour from "../404/index.js"
 import * as sessionActions from '../../store/session';
 import DeleteModal from '../DeleteModal';
 import { updateComment } from '../../store/comment';
+import { BsCheckCircleFill } from 'react-icons/bs';
 
 
 
@@ -24,6 +25,8 @@ const CommentIndexItem = props => {
     document.querySelector(`#pb${comment.id}`).style.opacity = "1"
     document.querySelector(`#pb${comment.id}`).style.pointerEvents = "auto"
     document.querySelector(`#mm${comment.id}`).style.pointerEvents = "auto"
+    document.querySelector(`cm${comment.id}`).style.pointerEvents = "auto"
+
     
     }
 
@@ -50,21 +53,8 @@ const CommentIndexItem = props => {
                 commentMenu.style.pointerEvents = "none"
        
     }
-
-    const handleUpdateSubmit = (e) => {
-        const commentBody = document.querySelector(`#body${comment.id}`)
-        const timeAgo = document.querySelector(`#timeago${comment.id}`)
-        const updateInput = document.querySelector(`#update${comment.id}`)
- 
-        e.preventDefault();
-        dispatch(updateComment({id: comment.id, body: updateBody, giver_id: sessionUser.id, post_id: post.id}))
-
-        commentBody.style.display = "auto"
-        timeAgo.style.display = "auto"
-        updateInput.style.display = "none"
-    }
-
-    const cuteTimeAgo = (timeAsString) => {
+    
+   const cuteTimeAgo = (timeAsString) => {
         const rightNow = new Date();
         const timeDiffInSeconds = Math.ceil((rightNow -  (new Date(timeAsString)))/1000)
         
@@ -75,18 +65,39 @@ const CommentIndexItem = props => {
 
     }
 
+const handleUpdateSubmit = (e) => {
+    const commentBody = document.querySelector(`#body${comment.id}`)
+    const timeAgo = document.querySelector(`#timeago${comment.id}`)
+    const updateInput = document.querySelector(`#update${comment.id}`)
+    console.log(cuteTimeAgo(comment.updatedAt))
+
+    e.preventDefault();
+    dispatch(updateComment({id: comment.id, body: updateBody, giver_id: sessionUser.id, post_id: post.id}))
+    commentBody.style.display = "auto"
+    timeAgo.style.display = "auto"
+    updateInput.style.display = "none"
+    timeAgo.innerHTML = "anything"
+}
+
+
 
 
     return (
         <>
-        <div id={`mm${comment.id}`} className="modal-maneuver" onMouseEnter={handleDeleteModalMouseEnter} onMouseLeave={handleDeleteModalMouseLeave}></div>
+        {/* <div id={`mm${comment.id}`} className="modal-maneuver" onMouseEnter={handleDeleteModalMouseEnter} onMouseLeave={handleDeleteModalMouseLeave}></div> */}
+
 
         <div className='comment-div' onMouseEnter={handleCommentMenuMouseEnter} onMouseLeave={handleCommentMenuMouseLeave}>
                     <div className="comment-author-body">
                         <div className='comment-author-flexer'>
-                            <div className="comment-author">{comment.username}</div>
+                            <div id="comment-author" className="comment-author">{comment.username} {comment.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null} 
+                                <span className="creator-tag">{post.authorId === comment.giverId ? `   Creator` : null}</span>
+                            </div>
+                            <div className="hover-thing">
+                            <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
                             {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} /> : null}
-                            <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' onMouseEnter={handleDeleteModalMouseEnter}/> 
+
+                            </div>
 
                             {/* <div className="delete-modal" >
                                 <BiDotsHorizontalRounded className='comment-menu' onMouseEnter={handleCommentMouseEnter} onMouseLeave={handleCommentMouseLeave}/> 

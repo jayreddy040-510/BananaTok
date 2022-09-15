@@ -55,9 +55,46 @@ html {
 
 .spacer {
     height: 0.1px;
-    opacity: 0.25;
-    background-color: #F3F3F3;
+    opacity: 1;
+    background-color: #dcd9d9;
     width: 95%;
+}
+
+.signup-container {
+    width: 100%;
+    background-color:transparent;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.signup-text {
+    font-size: 16px;
+    color: rgba(22,24,35,0.5);
+    line-height: 22px;
+}
+
+.signup-button {
+    font-family: "Nunito Sans";
+    padding: 6px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border-color: rgb(255,196,12);
+    border: solid;
+    border-width: 1px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(255,196,12);
+    height: 40%;
+    line-height: 25px;
+}
+
+.signup-button:hover {
+    background-color: rgba(253, 228, 152,0.2);
 }
 
 .sub-div {

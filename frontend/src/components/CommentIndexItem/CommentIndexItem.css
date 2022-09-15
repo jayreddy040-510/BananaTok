@@ -10,12 +10,29 @@
 
 .modal-maneuver {
     position: absolute;
-    right: 2%;
-    margin-top: 2.5%;
+    right: 1%;
+    margin-top: 1%;
     background-color: transparent;
-    width: 12%;
-    height: 10%;
+    width: 13%;
+    height: 12%;
     pointer-events: none;
     transition: 1s ease-in-out;
+}
+
+.creator-tag {
+    color: #DEA704;
+    font-family: Poppins;
+    font-size: 14px;
+}
+
+#comment-author {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+}
+
+.hover-thing {
+    position: relative;
 }
 

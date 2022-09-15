@@ -3,6 +3,15 @@
     font-family: Arial;
     font-weight: 100;
     color: #85868B;
-    margin-left: 3px;
+    margin-left: 2px;
 
+}
+
+.name-time-spacer {
+    display: flex;
+    align-items: center;
+}
+
+.index-name-spacer {
+    display: flex;
 }

@@ -1,0 +1,42 @@
+.upload-post-container {
+    margin-top: 8vh;
+    background-color: #F8F8F8;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.create-form {
+    background-color: white;
+    border-radius: 8px;
+    height: 120%;
+    width: 70%;
+    margin-top: 15%;
+    box-shadow: o;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.emoji-test-img {
+    scale: 0.04;
+    position: absolute;
+    top: 525px;
+    right: 400px;
+
+}
+
+.emoji-test-input {
+    width: 80%;
+    height: 5%;
+    position: relative;
+}
