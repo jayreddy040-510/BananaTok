@@ -102,7 +102,7 @@
 
 
 .log-in-buttons {
-    font-family: "Nunito Sans";
+    font-family: Avenir Book, Avenir, Arial;
     padding: 8px;
     width: 100px;
     background-color: rgb(255,196,12);
@@ -114,7 +114,7 @@
 
 }
 .upload-button {
-    font-family: "Nunito Sans";
+    font-family: Avenir Book, Avenir, Arial;
     padding: 4px;
     width: 100px;
     background-color: white;
