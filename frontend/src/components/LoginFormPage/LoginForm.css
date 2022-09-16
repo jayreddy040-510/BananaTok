@@ -42,7 +42,7 @@ h1 {
     border-radius: 5px;
     border: none;
     font-size: 14px;
-    font-weight: 600;
+    font-family: Avenir Heavy, Avenir Book, Arial;
     color: white;
 }
 
@@ -78,7 +78,7 @@ input {
 
 .signup-span {
     color: rgb(255,196,12);
-    font-weight: 700;
+    font-family: Avenir Heavy, Avenir Book, Arial;
 }
 
 .signup-span:hover {

@@ -28,7 +28,7 @@ const CommentIndex = (props) => {
 
     } else {
         return (
-        <div id="empty-comments-div">There don't seem to be any comments. Be the first to comment!</div>
+        <div id="empty-comments-div"><div id="empty-comments-subdiv">There don't seem to be any comments. Be the first to comment!</div></div>
         )
     }
 

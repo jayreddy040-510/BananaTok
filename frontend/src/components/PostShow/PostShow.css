@@ -534,27 +534,66 @@ aside.emoji-picker-react {
     border-radius: 5px;
     box-shadow: 0px 12px 19px -12px rgb(40,40,40);
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.modal-update h1 {
+    width: fit-content;
+    height: fit-content;
+    font-size: 36px;
+    font-family: Avenir Heavy, Avenir, Arial, Helvetica, sans-serif;
+    color: rgb(40,40,40)
+}
+
+#modal-flexer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}
+
+.div1 {
+
+    height: 100%;
+    width: 49%;
+    display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-.div1 {
-    background-color: grey;
+.div1 img {
+    width: 80%;
     height: 80%;
-    width: 49%
+}
+
+.update-labels {
+    font-family: Avenir Heavy, Avenir, Arial;
+    margin-bottom: 20px;
+}
+
+#tags-length {
+    position: absolute;
+    right: 6%;
+    margin-top: 3%;
+    color: rgba(40,40,40,0.4);
+    font-size: 12px;
 }
 
 .div2 {
-    background-color: yellowgreen;
-    height: 80%;
-    width: 1%;
+    background: rgba(40,40,40,0.3);
+    height: 100%;
+    width: 0.3%;
 
 }
 
 .div3 {
-    background-color: aqua;
-    height: 80%;
+
+    height: 810%;
     width: 49%;
 
 }
@@ -585,11 +624,20 @@ aside.emoji-picker-react {
 
 .update-tags {
     width: 80%;
-    height: 75%;
+    height: 30px;
 }
 
 .update-post-button {
+    font-family: Avenir Heavy, Avenir Book, Arial, Helvetica, sans-serif;
     width: 80%;
+    height:1%;
+    border: none;
+    background-color: rgb(255,196,12);
+    color: white;
+}
+
+.update-post-button:hover {
+    background-color: rgb(222, 167, 4);
 }
 
 .label-input-wrapper label {
@@ -605,7 +653,7 @@ aside.emoji-picker-react {
     position: absolute;
     color: rgba(40,40,40,0.4);
     right: 2%;
-    top: 2%;
+    top: 4%;
     font-family: PT Sans Caption;
     font-weight: 500;
     transition: 0.2s ease-in-out;

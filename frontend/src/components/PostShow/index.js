@@ -61,6 +61,12 @@ const PostShow = () => {
         }
     }
 
+    const handleChange = (e) => {
+        const monkey = document.querySelector("#monkey-img")
+        setCaption(e.target.value)
+        monkey.src = "/monkey-smile.png"
+    }
+
     const editPostHandleClick = () => {
         const modalContainer = document.querySelector(".modal-container-post-update")
         modalContainer.style.opacity = "1"
@@ -99,6 +105,12 @@ const PostShow = () => {
 
     }
 
+    const tagsLength = () => {
+        const tagsL = document.querySelector("#tags")
+        if (tagsL.length )
+        return caption.length > 0 ? <span id="tags-length">{`${String(caption.length)}/150`}</span> : null
+    }
+
     const handleUpdateSubmit = (e) => {
         const modalContainer = document.querySelector(".modal-container-post-update")
         e.preventDefault();
@@ -119,9 +131,11 @@ const PostShow = () => {
             <div className="show-welcome">
                 <div className="modal-container-post-update">
                     <div className="modal-update">
+                        <h1>Update Post</h1>
                         <CgClose onClick={modalCloseClickHandle} id="modal-close"/>
+                    <div id="modal-flexer">
                         <div className="div1">
-                            <img />
+                            <img id="monkey-img" src="/monkey.png"/>
                         </div>
                         <div className="div2">
                             
@@ -130,16 +144,22 @@ const PostShow = () => {
                             <div className="form-container">
                                 <form className="update-post-form" onSubmit={handleUpdateSubmit}>
                                         <div className="label-input-wrapper">
-                                            <label>Caption
+                                            <label className='update-labels'>Caption
                                                 <br />
-                                            <textarea type="textarea" value={caption} maxlimit="150" onChange={(e) => setCaption(e.target.value)} className="update-caption" />
+                                                <br />
+                                            <textarea placeholder="Change your caption!" type="textarea" value={caption} maxLength={150} onChange={handleChange} className="update-caption" />
+                                            <br />
+                                            {caption.length > 0 ? <span id="tags-length">{`${String(caption.length)}/150`}</span> : null}
                                             </label>
                                         </div>
                                         <br />
                                         <div className="label-input-wrapper">
-                                            <label>Tags
+                                            <label className='update-labels'>Tags
                                                 <br />
-                                                <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} className="update-tags" />
+                                                <br />
+                                                <input type="text" value={tags} maxLength={100} placeholder="Separate tags by a space (e.g. #tags #lags)" onChange={(e) => setTags(e.target.value)} className="update-tags" />
+                                                <br />
+                                                {tags.length > 0 ? <span id="tags-length">{`${String(tags.length)}/100`}</span> : null}
                                             </label>
                                     </div>
                                     <br />
@@ -147,6 +167,7 @@ const PostShow = () => {
                                 </form>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 {sessionUser.id === post.authorId ? <span className="del-button" onClick={deletePostHandler}>Delete Post</span> : null }
