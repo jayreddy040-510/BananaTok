@@ -260,6 +260,7 @@
 .comment-time-ago {
     font-size: 12px;
     height: 20%;
+    font-family: Avenir Book, Arial;
 }
 
 .delete-comment {

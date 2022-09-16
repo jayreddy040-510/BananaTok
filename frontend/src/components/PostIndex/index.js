@@ -63,6 +63,7 @@ posts.forEach( post => {
       <div className="post-index-div">
         <br />
         <br />
+
         {posts.map((post) => {
           return (
             <div key={post.id} className="post-container">

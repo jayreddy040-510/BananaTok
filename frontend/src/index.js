@@ -11,6 +11,7 @@ import * as sessionActions from './store/session';
 
 
 
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
@@ -29,6 +30,8 @@ function Root() {
 }
 
 
+
+
 const renderApplication = () => {
   ReactDOM.render(
     <React.StrictMode>
@@ -37,6 +40,7 @@ const renderApplication = () => {
     document.getElementById('root')
   );
 }
+
 
 if (
   sessionStorage.getItem("currentUser") === null ||

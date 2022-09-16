@@ -20,7 +20,6 @@ const PostText = (props) => {
 
     return (
 <div className="post-text-container"> 
-        {console.log(post.createdAt)}
     <div>
     <p className="postindex-username">{post.username} {post.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null}</p>
     {(!index ? <div className="name-time-spacer"><span className="postindex-name">{post.name} · {cuteTimeAgo(post.createdAt)}</span></div> : <div className="index-name-spacer"><span className="postindex-name">{post.name}</span></div>)}
