@@ -9,6 +9,7 @@ import * as sessionActions from '../../store/session';
 import DeleteModal from '../DeleteModal';
 import { updateComment } from '../../store/comment';
 import { BsCheckCircleFill } from 'react-icons/bs';
+import ReportModal from '../ReportModal';
 
 
 
@@ -20,6 +21,75 @@ const CommentIndexItem = props => {
     const post = props.post
     const id = props.commentId;
     const [updateBody, setUpdateBody] = useState(comment.body)
+    const [showEditor, setShowEditor] = useState(false)
+
+    const toggleEditor = () => {
+        if (!showEditor) {
+            return (
+
+
+                <div className='comment-div' onMouseEnter={handleCommentMenuMouseEnter} onMouseLeave={handleCommentMenuMouseLeave}>
+                    <div className="comment-author-body">
+                        <div className='comment-author-flexer'>
+                            <div id="comment-author" className="comment-author">
+                                {comment.username} 
+                                {comment.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null} 
+                                <span className="creator-tag">{post.authorId === comment.giverId ? `   Creator` : null}</span>
+                            </div>
+                            <div className="hover-thing">
+                                <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
+                                {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
+
+                            </div>
+                        </div>
+                    
+                      
+                            
+                        <div id={`body${comment.id}`} className="comment-body">{comment.body}</div> 
+
+                        <div id={`timeago${comment.id}`} className="comment-time-ago">{cuteTimeAgo(comment.createdAt)}</div>
+                    </div>
+            </div>
+
+
+
+            )
+        }else {
+            return (
+
+
+                <div className='comment-div' onMouseEnter={handleCommentMenuMouseEnter} onMouseLeave={handleCommentMenuMouseLeave}>
+                    <div className="comment-author-body">
+                        <div className='comment-author-flexer'>
+                            <div id="comment-author" className="comment-author">
+                                {comment.username} 
+                                {comment.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null} 
+                                <span className="creator-tag">{post.authorId === comment.giverId ? `   Creator` : null}</span>
+                            </div>
+                            <div className="hover-thing">
+                                <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
+                                {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
+
+                            </div>
+                        </div>
+                    
+                      
+                <form onSubmit={handleUpdateSubmit}>
+                    <input maxLength="80" value={updateBody} id={`update${comment.id}`} className="update-input" onChange= {(e) => {setUpdateBody(e.target.value)}}></input>
+                </form>
+                            {/* {toggleEditor()} */}
+
+                        {/* <div id={`timeago${comment.id}`} className="comment-time-ago">{cuteTimeAgo(comment.createdAt)}</div> */}
+                    </div>
+            </div>
+
+
+
+
+
+            )
+        }
+    }
 
     const handleDeleteModalMouseEnter = () => {
     document.querySelector(`#pb${comment.id}`).style.opacity = "1"
@@ -69,63 +139,50 @@ const handleUpdateSubmit = (e) => {
     const commentBody = document.querySelector(`#body${comment.id}`)
     const timeAgo = document.querySelector(`#timeago${comment.id}`)
     const updateInput = document.querySelector(`#update${comment.id}`)
-    console.log(cuteTimeAgo(comment.updatedAt))
 
     e.preventDefault();
     dispatch(updateComment({id: comment.id, body: updateBody, giver_id: sessionUser.id, post_id: post.id}))
-    commentBody.style.display = "auto"
-    timeAgo.style.display = "auto"
-    updateInput.style.display = "none"
-    timeAgo.innerHTML = "anything"
+    // commentBody.style.display = "auto"
+    // timeAgo.style.display = "auto"
+    // updateInput.style.display = "none"
+    // timeAgo.innerHTML = "anything"
+    setShowEditor(false)
 }
+
+if(!props.comment) return null
 
 
 
 
     return (
         <>
-        {/* <div id={`mm${comment.id}`} className="modal-maneuver" onMouseEnter={handleDeleteModalMouseEnter} onMouseLeave={handleDeleteModalMouseLeave}></div> */}
+        {toggleEditor()}
 
-
-        <div className='comment-div' onMouseEnter={handleCommentMenuMouseEnter} onMouseLeave={handleCommentMenuMouseLeave}>
+            {/* <div className='comment-div' onMouseEnter={handleCommentMenuMouseEnter} onMouseLeave={handleCommentMenuMouseLeave}>
                     <div className="comment-author-body">
                         <div className='comment-author-flexer'>
-                            <div id="comment-author" className="comment-author">{comment.username} {comment.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null} 
+                            <div id="comment-author" className="comment-author">
+                                {comment.username} 
+                                {comment.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null} 
                                 <span className="creator-tag">{post.authorId === comment.giverId ? `   Creator` : null}</span>
                             </div>
                             <div className="hover-thing">
-                            <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
-                            {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} /> : null}
+                                <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
+                                {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
 
                             </div>
-
-                            {/* <div className="delete-modal" >
-                                <BiDotsHorizontalRounded className='comment-menu' onMouseEnter={handleCommentMouseEnter} onMouseLeave={handleCommentMouseLeave}/> 
-                                <img src='/delete_modal.png' className='hover-delete' onMouseLeave={handleCommentMouseLeave}></img>
-                                <div className="delete-edit-container" onMouseEnter={handleCommentMouseEnter}>
-                                    <span id="delete-comment-container">Update <TiPencil className='delete-comment' /></span> |
-                                    <span id="delete-comment-container" onClick={handleDeleteComment} >Delete <BiTrash className='delete-comment' /></span>
-                                    </div>
-                                </div> */}
                         </div>
                     
-                        {/* <div className='test-input-div'>
-                            <form>
-                                <button className='test-input-button'> Update
-                                    <input className='test-input'></input>
-                                </button>
-                            </form></div> */}
-                        <div id={`body${comment.id}`} className="comment-body">{comment.body}</div> 
-                        <form onSubmit={handleUpdateSubmit}>
-                            <input maxLength="80" value={updateBody} id={`update${comment.id}`} className="update-input" onChange= {(e) => {setUpdateBody(e.target.value)}}></input>
-                        </form>
-                    <div id={`timeago${comment.id}`} className="comment-time-ago">{cuteTimeAgo(comment.createdAt)}</div>
+                      
+                            {toggleEditor()}
+
+                        <div id={`timeago${comment.id}`} className="comment-time-ago">{cuteTimeAgo(comment.createdAt)}</div>
                     </div>
-                </div>
+            </div> */}
 
 
 
-            </>
+        </>
 
     )
 

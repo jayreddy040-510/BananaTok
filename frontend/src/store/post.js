@@ -128,7 +128,7 @@ export const deletePost = (postId) => async dispatch => {
 }
 
 export const updatePost = post => async dispatch => {
-    const res = await csrfFetch(`/api/posts/${post}`, {
+    const res = await csrfFetch(`/api/posts/${post.id}`, {
         method: "PATCH",
         body: JSON.stringify(post),
         headers: {
@@ -136,6 +136,10 @@ export const updatePost = post => async dispatch => {
             "Accepted": "application/json"
         }
     })
+    if (res.ok) {
+        const payload = await res.json();
+        dispatch(receivePost(payload));
+        }
 }
 
 
@@ -162,12 +166,12 @@ export const createComment = comment => async dispatch => {
     }
 
 export const createPost = post => async dispatch => {
-        const res = await csrfFetch(`/api/posts`, {
+    debugger
+        const res = await fetch(`/api/posts`, {
             method: "POST",
-            body: JSON.stringify(post),
+            body: post,
             headers: {
-                "Content-Type": "application/json",
-                "Accepted": "application/json"
+                "X-CSRF-Token" : sessionStorage.getItem('X-CSRF-Token')
             }
         })
 

@@ -42,7 +42,6 @@ posts.forEach( post => {
       post.bananas[i].giver_id === sessionUser.id &&
       post.bananas[i].on
     ) {
-      console.log("hihihi")
       banana.src = "banana-liked.png";
     } else if (!post.bananas[i].on && post.bananas) {
       banana.src = "banana-unliked.png"
@@ -156,92 +155,6 @@ posts.forEach( post => {
               <div className="spacer2"></div>
             </div>
           )
-          // else return ((
-          //   <div key={post.id} className="post-container">
-          //     <br />
-          //     <br />
-          //     <div className="post-text-container"> 
-          //       <p className="postindex-username">{post.username}</p> 
-          //       <p className="postindex-caption">
-          //         {post.caption}
-          //         <span className="postindex-tags">
-          //           {" "}
-          //           #gucci #words #shoes #ilovemylife #beatsbydre #zuzuonthebeat
-          //           #fullstackproject
-          //         </span>
-          //       </p>
-          //     </div>
-          //     <br />
-          //     <div className="video-show-link">
-          //       <Link to={`@${post.username}/posts/${post.id}`}>
-          //         <video className="videos" loop autoPlay muted controls>
-          //           <source src={post.videoUrl} type="video/mp4" />
-          //           video cannot be played
-          //         </video>
-          //       </Link>
-          //       {/* <div className="in-video-text">
-          //         <div className="in-video-logos"><img className="in-video-logo-images" src="/favicon.ico" id="in-video-banana" alt="" /><img id="in-video-bananatok" className="in-video-logo-images" src="/title3.png" alt="" /></div>
-          //       </div> */}
-          //       <div className="username-in-video">@{post.username}</div>
-          //       <div className="index-buttons">
-          //         <button
-          //           className="index-button"
-          //           id="bananas"
-          //           onClick={() => {
-
-          //             let bananaExists = false;
-          //             if (sessionUser) {
-          //               for(let i = 0; i < post.bananas.length; i++) {
-                          
-          //                 if (post.bananas[i].giver_id === sessionUser.id) {
-          //                   dispatch(removeBanana(post.bananas[i].id))
-          //                   // dispatch(updateBanana({...post.bananas[i], on: !post.bananas[i].on}))
-          //                   bananaExists = true;
-          //                   setBananaLike(bananaLike + 1)
-          //                   break;
-          //                 }
-          //               }
-          //               if (!bananaExists) {
-          //                 dispatch(createBanana({giver_id: sessionUser.id, receiver_id: post.author_id, post_id: post.id}))
-          //               }
-          //             } else {
-          //               history.push("/login");
-                        
-          //             }
-          //           }}
-          //         >
-                    
-          //           <img
-          //             id={`button-banana-picture${post.id}`}
-          //             className="button-picture"
-          //             src="banana-unliked.png"
-          //           ></img>
-          //         </button>
-          //         <div className="index-button-number" id="banana-number">
-          //           {post.bananaCount}
-          //         </div>
-          //         <button
-          //           className="index-button"
-          //           onClick={() => {
-          //             if (!sessionUser) {
-          //               history.push("/login");
-          //             } else {
-          //               history.push(`/@${post.username}/posts/${post.id}`);
-          //             }
-          //           }}
-          //         >
-          //           <img className="button-picture" src="gorilla.png"></img>
-          //         </button>
-          //         <div className="index-button-number" id="comment-number">
-          //           {post.commentCount}
-          //         </div>
-          //       </div>
-          //     </div>
-          //     <br />
-          //     <div className="spacer2"></div>
-          //   </div>
-          // )
-          // )
         })}
       </div>
     );

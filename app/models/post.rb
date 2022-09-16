@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
     validates :caption, :topic, presence: true
-    validates :topic, inclusion: { in: ["Comedy", "Gaming", "Food", "Dance", "Beauty", "Animals", "Sports", "Other"],  message: "%{value} is not a valid topic - remember to capitalize!" }
     
     has_one_attached :video
 

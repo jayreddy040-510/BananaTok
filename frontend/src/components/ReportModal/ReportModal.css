@@ -1,0 +1,17 @@
+.report-span {
+    margin-right: 5%;
+}
+
+.delete-edit-container1 {
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 40px;
+right: 18px;
+font-size: 16px;
+width: -moz-fit-content;
+width: 100%;
+font-weight: 600;
+opacity: 1;
+}

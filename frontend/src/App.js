@@ -20,6 +20,9 @@ function App() {
       <Route exact path="/">
         <SplashPage />
       </Route>
+      <Route path="/upload">
+        <CreatePostForm />
+      </Route>
 
       <Route path="/login">
         <LoginFormPage />
@@ -29,9 +32,6 @@ function App() {
         <SignupFormPage />
       </Route>
 
-      <Route path="/upload">
-        <CreatePostForm />
-      </Route>
 
       <Route path="/@:username/posts/:postId">
         <PostShow />

@@ -1,7 +1,7 @@
 .update-input {
     line-height: 30px;
     width: 80%;
-    display:none;
+    /* display:none; */
     border-radius: 5px;
     color: #161823;
     font-size: 14px;

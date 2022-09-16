@@ -38,7 +38,6 @@ const DeleteModal = (props) => {
 
     const handleDeleteComment = () => {
 
-        console.log(comment)
 
         dispatch(deleteComment(comment.id))
 
@@ -52,7 +51,7 @@ const DeleteModal = (props) => {
 
        commentBody.style.display = "none"
        timeAgo.style.display = "none"
-       updateInput.style.display = "inline-block"
+    //    updateInput.style.display = "inline-block"
 
     }
         
@@ -64,7 +63,7 @@ return (
     <div id={`pb${comment.id}`} className="pb" >
         <img src='/delete_modal.png' className='hover-delete'></img>
         <div className="delete-edit-container">
-            <span id="delete-comment-container" onClick={handleUpdateClick}>Update <TiPencil className='delete-comment' /></span> |
+            <span id="delete-comment-container" onClick={()=>props.toggleEditor(true)}>Update <TiPencil className='delete-comment' /></span> |
             <span id="delete-comment-container" onClick={handleDeleteComment} >Delete <BiTrash className='delete-comment' /></span>
         </div>
     </div>

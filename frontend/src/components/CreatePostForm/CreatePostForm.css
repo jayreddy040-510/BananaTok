@@ -12,16 +12,17 @@
 .create-form {
     background-color: white;
     border-radius: 8px;
-    height: 120%;
-    width: 70%;
-    margin-top: 15%;
-    box-shadow: o;
+    height: 60%;
+    width: 40%;
+    margin-top: 6%;
+    box-shadow: 0;
+    z-index: 1;
 }
 
 .inputs-container {
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 100%;
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
@@ -39,4 +40,25 @@
     width: 80%;
     height: 5%;
     position: relative;
+}
+
+.upload-h1 {
+    font-size: 35px;
+    color: rgb(40,40,40);
+    font-weight: 800;
+    align-self: center;
+}
+
+.banana-gif {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+#upload-button {
+    width: 40%;
+
+    height: 8%;
+
 }

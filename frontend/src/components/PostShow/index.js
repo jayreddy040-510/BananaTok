@@ -2,7 +2,7 @@ import './PostShow.css'
 import { useParams, useHistory} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchPost, getPost, createComment, deletePost } from '../../store/post';
+import { fetchPost, getPost, createComment, deletePost, updatePost } from '../../store/post';
 import { CgClose } from "react-icons/cg";
 import FourOhFour from "../404/index.js"
 import { AiOutlineSmile } from 'react-icons/ai';
@@ -30,6 +30,17 @@ const PostShow = () => {
     const [body,setBody] = useState('')
     const input = document.querySelector("#comment-input")
     const [showPicker, setShowPicker] = useState(false);
+    const [caption, setCaption] = useState('')
+    const [tags, setTags] = useState('')
+
+
+
+
+    const modalCloseClickHandle = () => {
+        const modalContainer = document.querySelector(".modal-container-post-update")
+        modalContainer.style.opacity = "0"
+        modalContainer.style.pointerEvents = "none"
+    }
 
 
 
@@ -47,6 +58,14 @@ const PostShow = () => {
         }
     }
 
+    const editPostHandleClick = () => {
+        const modalContainer = document.querySelector(".modal-container-post-update")
+        modalContainer.style.opacity = "1"
+        modalContainer.style.pointerEvents = "auto"
+
+
+    }
+
     const addCommentHandler = (e) => {
         const addCommentButton = document.querySelector(".add-comment-button")
         e.preventDefault();
@@ -62,7 +81,6 @@ const PostShow = () => {
     const changeHandler = (e) => {
         const addCommentButton = document.querySelector(".add-comment-button")
         setBody(e.target.value);
-        // console.log(e.target.value.length)
         return e.target.value.length > 1 ? addCommentButton.style.color = "rgb(255,196,12)" : "rgb(187,187,191)"
     }
 
@@ -70,30 +88,45 @@ const PostShow = () => {
 
     }
 
+    const handleUpdateSubmit = (e) => {
+        const modalContainer = document.querySelector(".modal-container-post-update")
+        e.preventDefault();
+        dispatch(updatePost({id: postId, caption: caption, topic: post.topic, author_id: post.authorId, tags: tags, sound: post.sound}))
+        modalContainer.style.opacity = "0"
+        modalContainer.style.pointerEvents = "none"
+        setTags('');
+        setCaption('');
+    }
 
     useEffect( () => {
         dispatch(fetchPost(postId));
-        // setBanana(banana+1)
     },[postId, banana])
-    // if (!post) return null;
     
-    // console.log(post, "aljsdjlas")
     if (post) {
         return(
             
             <div className="show-welcome">
-                {/* <div id="bar-test">Deleted</div> */}
                 <div className="modal-container-post-update">
                     <div className="modal-update">
-                        <form className="update-post-form">
-                            <label>Caption
-                                <input type="text" className="update-caption" />
-                            </label>
-                            <label>Tags
-                                <input type="text" className="update-tags" />
-                            </label>
-                            <buttono>Update Post</button>
-                        </form>
+                        <CgClose onClick={modalCloseClickHandle} id="modal-close"/>
+                        <div className="form-container">
+                            <form className="update-post-form" onSubmit={handleUpdateSubmit}>
+                                    <div className="label-input-wrapper">
+                                        <label>Caption
+                                            <br />
+                                        <input type="text" value={caption} onChange={(e) => setCaption(e.target.value)} className="update-caption" />
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <div className="label-input-wrapper">
+                                        <label>Tags
+                                            <br />
+                                            <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} className="update-tags" />
+                                        </label>
+                                 </div>
+                                <button className='update-post-button'>Update Post</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 {sessionUser.id === post.authorId ? <span className="del-button" onClick={deletePostHandler}>Delete Post</span> : null }
@@ -101,7 +134,6 @@ const PostShow = () => {
 
                 <div className="left-show">
                     <button className="show-close-button" onClick={()=> {history.push("/")}}>
-                        {/* <img className="show-close-button-image" src="cancel.png" alt="Return to Home Page"></img> */}
                         <CgClose className='show-close-button-text'/></button>
                     <button className="show-logo-button" ><img className="show-logo-button-image" src="/favicon.ico" alt="logo"></img></button>
                     <video className="show-page-video" loop autoPlay muted controls>
@@ -144,7 +176,7 @@ const PostShow = () => {
                                 <span className="banana-show-count">{post.commentCount > 1000 ? String(post.commentCount).substring(0,3) + 'K' : post.commentCount }</span>
                             </div>
 
-                            {sessionUser.id === post.authorId ? (<div className="banana-button-div">
+                            {sessionUser.id === post.authorId ? (<div className="banana-button-div" onClick={editPostHandleClick}>
                                 <button className="index-button" id="bananas-show">
                                     <TiPencil id="edit-post-img"/>
                                 </button>

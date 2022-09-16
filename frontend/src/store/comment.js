@@ -113,7 +113,7 @@ export const updateComment = comment => async dispatch => {
 
     if (res.ok) {
     const payload = await res.json();
-    dispatch(changeComment(payload));
+    dispatch(changeComment(payload.comment));
     }
 }
 
@@ -143,7 +143,8 @@ const commentsReducer = (state={}, action) => {
             return nextState;
 
         case UPDATE_COMMENT:
-            return {...nextState, ...action.payload}
+            nextState[action.payload.id] = action.payload
+            return nextState
 
 
         default:

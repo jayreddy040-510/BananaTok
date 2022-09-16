@@ -17,8 +17,8 @@ function NavBar() {
         history.push('/login')
     }
 
-    const navigateToLogin2 = () => {
-        sessionUser ? history.push("/upload") : history.push('/login')
+    const navigateToUpload = () => {
+       history.push("/upload")
     }
 
     const handleClick = () => {
@@ -39,7 +39,6 @@ function NavBar() {
 
     const demoLogin = () => {
         if (!sessionUser) {
-            console.log('logging in demo dgg');
             // await csrfFetch('/api/session', demoLoginOptions).then(res => res.json())
             dispatch(sessionActions.login({username: 'dieguccio', password: 'dieguccio'}))
         }
@@ -53,7 +52,7 @@ function NavBar() {
                     </div>
                     <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
-                    <div><button className='upload-button'><span className='plus'>+ </span> Upload</button></div>
+                    <div><button className='upload-button' onClick={navigateToUpload}><span className='plus'>+ </span> Upload</button></div>
                     <div><button className='log-in-buttons' onClick={logOut}>Log Out</button></div>
                 </div>
             </div>
@@ -68,7 +67,7 @@ function NavBar() {
                 </div>
             <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
-                <div><button className='upload-button' onClick={navigateToLogin2}><span className='plus'>+ </span> Upload</button></div>
+                <div><button className='upload-button' onClick={navigateToLogin}><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>
                 <div><button className='log-in-buttons' onClick={demoLogin}>Demo Log in</button></div>
             </div>

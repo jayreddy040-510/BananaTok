@@ -16,10 +16,12 @@ class Api::PostsController < ApplicationController
     end
 
     def create
+        debugger
         @post = Post.new(post_params)
-        if @post.save
-            render :show
+        if @post.save!
+            render '/api/posts/show'
         else
+            debugger
             render json: {errors: "can't create this post"}, status: 422
         end
     end
@@ -35,18 +37,17 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        # debugger
-        @post = Pomment.find_by(id: params[:id])
+        @post = Post.find_by(id: params[:id])
         if @post.update(post_params)
             render :show
         else
-            render json: {error: "couldn't update this post"}, status: :unprocessable_entity
+            render json: {error: "couldn't update this post"}, status: 404
         end
     end
 
 
     def post_params
-        params.require(:post).permit(:caption, :topic, :author_id, :tags, :sound)
+        params.require(:post).permit(:id, :caption, :topic, :author_id, :tags, :sound,:video)
     end
 
 end
