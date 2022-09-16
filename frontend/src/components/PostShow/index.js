@@ -133,6 +133,7 @@ const PostShow = () => {
                     <div className="modal-update">
                         <h1>Update Post</h1>
                         <CgClose onClick={modalCloseClickHandle} id="modal-close"/>
+                        <h1 id="enter-submit">"Press Enter to Submit!"</h1>
                     <div id="modal-flexer">
                         <div className="div1">
                             <img id="monkey-img" src="/monkey.png"/>

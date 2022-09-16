@@ -600,6 +600,12 @@ aside.emoji-picker-react {
 
 }
 
+#enter-submit {
+    font-size: 16px;
+    position: absolute;
+    left: 12%;
+    margin-bottom: 50%;
+}
 
 .form-container {
     width: 100%;
@@ -739,7 +745,14 @@ aside.emoji-picker-react {
     }
 
     #modal-close {
-        margin-bottom: 70%;
+        margin-bottom: 77%;
+    }
+
+    #enter-submit {
+        font-size: 16px;
+        position: absolute;
+        left: 15%;
+        margin-bottom: 50%;
     }
 
 }
