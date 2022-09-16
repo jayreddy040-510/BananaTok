@@ -22,7 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-    font-family: 'Nunito Sans, Lato, Open Sans, Arial';
+    font-family: Nunito Sans, Lato, Open Sans, Arial;
 	color: rgb(22,24,35);
 }
 /* HTML5 display-role reset for older browsers */
@@ -65,5 +65,5 @@ input {
     border: solid;
     border-width: 0.5px;
     border-color: rgb(224,225,226);
-    font-family: 'Nunito Sans, Lato, Open Sans, Arial';
+    font-family: Nunito Sans, Lato, Open Sans, Arial;
 }
