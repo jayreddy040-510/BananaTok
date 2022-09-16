@@ -304,6 +304,7 @@
     display: flex;
     align-items: center;
     opacity: 1;
+    font-family: Avenir Heavy, Avenir Book, Avenir, Arial, Helvetica, sans-serif;
 }
 
 #delete-comment-container:hover {
@@ -413,7 +414,8 @@
 .add-comment-button {
     font-family: Poppins;
     height: 45%;
-    width: 7%;
+    /* width: 7%; */
+    margin-right: 2%;
     background-color: transparent;
     border: none;
     color: rgb(187,187,191);
@@ -653,7 +655,7 @@ aside.emoji-picker-react {
     position: absolute;
     color: rgba(40,40,40,0.4);
     right: 2%;
-    top: 4%;
+    top: 1.5%;
     font-family: PT Sans Caption;
     font-weight: 500;
     transition: 0.2s ease-in-out;
@@ -669,10 +671,11 @@ aside.emoji-picker-react {
 
 #comment-length {
     position: absolute;
-    right: 25.7%;
+    right: 26.7%;
     bottom: 7.3%;
     font-size: 12px;
     color: rgba(40,40,40,0.4);
+    font-family: Avenir Book, Avenir, Arial, Helvetica, sans-serif;
 }
 
 
@@ -731,7 +734,7 @@ aside.emoji-picker-react {
     }
 
     #comment-length {
-        right: 26.3%;
+        right: 27.1%;
         bottom: 6.2%;
     }
 

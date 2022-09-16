@@ -76,7 +76,7 @@ function LoginFormPage() {
     <br />
     <br />
     <br />
-  <p>Don't have an account? <span className='signup-span' onClick={() => {history.push("/signup")}}>Sign up here!</span></p> 
+  <p id="login-p-tag">Don't have an account? <span className='signup-span' onClick={() => {history.push("/signup")}}>Sign up here!</span></p> 
     </div>
     <div className="welcome-video-container">
         <video width="100%" height="100%"  loop autoPlay muted>

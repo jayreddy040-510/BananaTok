@@ -43,11 +43,11 @@ const SplashPage = () => {
             <div className="spacer"></div>
     <br />
 
-    {sessionUser ? null : <div className="signup-container"><span className="signup-text">You don't seem to be logged in! Sign up or login to upload and comment on videos!
-    </span><button className="signup-button" onClick={() => { history.push("./signup")}}>Sign up</button></div>}
+    {sessionUser ? null : <><div className="signup-container"><span className="signup-text">You don't seem to be logged in! Sign up or login to upload and comment on videos!
+    </span><button className="signup-button" onClick={() => { history.push("./signup")}}>Sign up</button></div>
     <br />
     <div className="spacer"></div>
-    <br />
+    <br /></>}
 
             <div className="topics-container">
                     <span className="container-subheading">Popular Topics</span>

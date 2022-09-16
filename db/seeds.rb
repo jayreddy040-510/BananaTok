@@ -26,6 +26,18 @@ ApplicationRecord.transaction do
 
   user4 = User.create!(password: "silencio", username: "art_of_silence", about_me: "The gift of hearing is best appreciated in its absence - I like to post silent things. Follow me on Bananagram! ", email: "b.broheim2@gmail.com", bananas_count: 23, follows_count: 2)
 
+  user5 = User.create!(password: "password", username: "225lean", name: "GGran" about_me: "Post daily fitness content! Follow me for fitspo!", email: "lifting@gmail.com", verified: true)
+
+  user6 = User.create!(password: "password", username: "el_Tigre", name: "Taylor (Swift?)" about_me: "Mew3King, Smash God, but nicer", email: "soraisbrokenbtw@gmail.com", verified: true)
+
+  user7 = User.create!(password: "password", username: "ZhongXina", name: "Bo", about_me: "Food and Chinese Politics Critic", email: "memes4dreams@gmail.com", verified: false)
+
+  user8 = User.create!(password: "password", username: "anon", about_me: "AnonymousUser5463", email: "anon@gmail.com", verified: false)
+
+  user9 = User.create!(password: "password", name:"Elizabeth, the Bot" username: "lizbot", about_me: "I help students stay on track at a/A!", email: "helper@gmail.com", verified: true)
+
+  user10 = User.create!(password: "password", username: "krystal_", name: "krystal," about_me: "Post daily fitness content! Follow me for fitspo!", email: "lifting@gmail.com", verified: true)
+
   user1_post1 = Post.create!(caption: "Look at my dog and how cute he is!!", topic: "Animals", author_id: 1, banana_count: 14328, comment_count: 245, tags: "#livelovelaugh, #caninecuties, #taylorswift, #downwiththesickness, #alalala")
 
   user1_post2 = Post.create!(caption: "Dogs add slivers of joy to this desolate desert of an existence", topic: "Animals", author_id: 1, banana_count: 96453, comment_count: 113)

@@ -84,3 +84,8 @@ input {
 .signup-span:hover {
     cursor: pointer;
 }
+
+#login-p-tag {
+    font-family: Avenir Book, Avenir, Arial, Helvetica, sans-serif;
+    color: rgb(40,40,40;)
+}
