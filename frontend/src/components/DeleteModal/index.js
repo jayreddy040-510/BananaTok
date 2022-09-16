@@ -3,12 +3,13 @@ import { BiTrash, BiDotsHorizontalRounded } from 'react-icons/bi'
 import { useParams, useHistory} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchPost, getPost, deleteComment, createComment } from '../../store/post';
+import { deleteComment, updatePost } from '../../store/post';
 import { CgClose } from "react-icons/cg";
 import FourOhFour from "../404/index.js"
 import { BsCheckCircleFill, BsSearch } from 'react-icons/bs';
 import { TiPencil } from 'react-icons/ti'
 import * as sessionActions from '../../store/session';
+
 
 
 
@@ -22,6 +23,7 @@ const DeleteModal = (props) => {
     const deleteContainer = document.querySelector(".delete-edit-container")
     const commentMenu = document.querySelectorAll(".comment-menu")
     const comment = props.comment;
+    const post = props.post;
 
 
     const handleDeleteModalMouseEnter = () => {
@@ -40,6 +42,8 @@ const DeleteModal = (props) => {
 
 
         dispatch(deleteComment(comment.id))
+        dispatch(updatePost({id: post.id, caption: post.caption, topic: post.topic, author_id: post.authorId, tags: post.tags, sound: post.sound, comment_count: (post.commentCount-1)}))
+
 
 
     }
@@ -61,6 +65,7 @@ return (
 
 <>
     <div id={`pb${comment.id}`} className="pb" >
+        {console.log("here", post)}
         <img src='/delete_modal.png' className='hover-delete'></img>
         <div className="delete-edit-container">
             <span id="delete-comment-container" onClick={()=>props.toggleEditor(true)}>Update <TiPencil className='delete-comment' /></span> |

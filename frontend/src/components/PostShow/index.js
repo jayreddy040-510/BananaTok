@@ -32,6 +32,9 @@ const PostShow = () => {
     const [showPicker, setShowPicker] = useState(false);
     const [caption, setCaption] = useState('')
     const [tags, setTags] = useState('')
+    const [commentLength, setCommentLength] = useState("0/80")
+    const [showCommentLength, setShowCommentLength] = useState(false)
+
 
 
 
@@ -70,6 +73,9 @@ const PostShow = () => {
         const addCommentButton = document.querySelector(".add-comment-button")
         e.preventDefault();
         dispatch(createComment({body: body, post_id: post.id, giver_id: sessionUser.id}))
+        setBody('')
+        setCommentLength("0/80")
+        dispatch(updatePost({id: postId, caption: post.caption, topic: post.topic, author_id: post.authorId, tags: post.tags, sound: post.sound, comment_count: (post.commentCount+1)}))
         input.value = ''
         addCommentButton.style.color = "rgb(187,187,191)"
     }
@@ -80,7 +86,12 @@ const PostShow = () => {
 
     const changeHandler = (e) => {
         const addCommentButton = document.querySelector(".add-comment-button")
+        const commentLengthSpan = document.querySelector("#comment-length")
         setBody(e.target.value);
+        if (e.target.value.length > 0) setShowCommentLength(true);
+        if (e.target.value.length === 80) commentLengthSpan.style.color = "rgb(255,196,12)";
+        if (e.target.value.length < 80) commentLengthSpan.style.color = "auto";
+        setCommentLength(`${String(e.target.value.length)}/80`)
         return e.target.value.length > 1 ? addCommentButton.style.color = "rgb(255,196,12)" : "rgb(187,187,191)"
     }
 
@@ -91,7 +102,7 @@ const PostShow = () => {
     const handleUpdateSubmit = (e) => {
         const modalContainer = document.querySelector(".modal-container-post-update")
         e.preventDefault();
-        dispatch(updatePost({id: postId, caption: caption, topic: post.topic, author_id: post.authorId, tags: tags, sound: post.sound}))
+        dispatch(updatePost({id: postId, caption: caption, topic: post.topic, author_id: post.authorId, tags: tags, sound: post.sound, comment_count: post.commentCount}))
         modalContainer.style.opacity = "0"
         modalContainer.style.pointerEvents = "none"
         setTags('');
@@ -109,23 +120,32 @@ const PostShow = () => {
                 <div className="modal-container-post-update">
                     <div className="modal-update">
                         <CgClose onClick={modalCloseClickHandle} id="modal-close"/>
-                        <div className="form-container">
-                            <form className="update-post-form" onSubmit={handleUpdateSubmit}>
-                                    <div className="label-input-wrapper">
-                                        <label>Caption
-                                            <br />
-                                        <input type="text" value={caption} onChange={(e) => setCaption(e.target.value)} className="update-caption" />
-                                        </label>
+                        <div className="div1">
+                            <img />
+                        </div>
+                        <div className="div2">
+                            
+                        </div>
+                        <div className="div3">
+                            <div className="form-container">
+                                <form className="update-post-form" onSubmit={handleUpdateSubmit}>
+                                        <div className="label-input-wrapper">
+                                            <label>Caption
+                                                <br />
+                                            <textarea type="textarea" value={caption} maxlimit="150" onChange={(e) => setCaption(e.target.value)} className="update-caption" />
+                                            </label>
+                                        </div>
+                                        <br />
+                                        <div className="label-input-wrapper">
+                                            <label>Tags
+                                                <br />
+                                                <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} className="update-tags" />
+                                            </label>
                                     </div>
                                     <br />
-                                    <div className="label-input-wrapper">
-                                        <label>Tags
-                                            <br />
-                                            <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} className="update-tags" />
-                                        </label>
-                                 </div>
-                                <button className='update-post-button'>Update Post</button>
-                            </form>
+                                    <button className='update-post-button'>Update Post</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -170,7 +190,7 @@ const PostShow = () => {
                                 <span className="banana-show-count">{post.bananaCount > 1000 ? String(post.bananaCount).substring(0,3) + 'K' : post.bananaCount }</span>
                             </div>
                             <div className="banana-button-div">
-                                <button className="index-button" id="bananas-show">
+                                <button style={{cursor: 'auto'}} className="index-button" id="bananas-show">
                                     <img style={{cursor: 'auto'}} id="show-banana" src="/chat-bubble.png"></img>
                                 </button>
                                 <span className="banana-show-count">{post.commentCount > 1000 ? String(post.commentCount).substring(0,3) + 'K' : post.commentCount }</span>
@@ -195,9 +215,11 @@ const PostShow = () => {
                         <div className="add-comment-subcontainer">
                             <form className='comment-form'  onSubmit={addCommentHandler}>
                                 <div className='search-bar-div1' >
+                                    {showCommentLength ? <span id="comment-length">{commentLength}</span> : null} 
                                     <input id="comment-input" value={body} onChange={changeHandler} className="search-bar" type="text" placeholder='  Add Comment (80 Character Limit)' maxLength="80"/><AiOutlineSmile id="ai" onClick={() => setShowPicker(val => !val)}/>
                                 {showPicker && <EmojiPicker style={{position: "absolute"}} classname="emoji-picker" pickerStyle={{width:'15%'}} onEmojiClick={handleEmojiClick} />}
                                     <button className='add-comment-button' onClick={handleCommentPostClick}>Post</button>
+                                    
                                 </div>
                             </form>
                         </div>

@@ -15,3 +15,12 @@ width: 100%;
 font-weight: 600;
 opacity: 1;
 }
+
+#delete-comment-container1:hover {
+    color: rgb(255,196,12);
+    cursor: pointer;
+}
+
+#delete-comment-container1 {
+    margin-left: 25%;
+}

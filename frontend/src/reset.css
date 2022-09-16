@@ -54,13 +54,13 @@ button:hover {
     cursor: pointer;
 }
 
-input:focus {
+input:focus, textarea:focus {
         outline-color: rgb(204, 205, 207);
         outline-width: 0.3px;
         outline-style: solid;
 }
 
-input {
+input, textarea {
     caret-color: rgb(255,196,12);
     background-color: rgb(243, 243, 244);
     border: solid;

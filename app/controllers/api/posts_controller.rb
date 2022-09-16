@@ -38,7 +38,7 @@ class Api::PostsController < ApplicationController
 
     def update
         @post = Post.find_by(id: params[:id])
-        if @post.update(post_params)
+        if @post.update(update_post_params)
             render :show
         else
             render json: {error: "couldn't update this post"}, status: 404
@@ -48,6 +48,10 @@ class Api::PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(:id, :caption, :topic, :author_id, :tags, :sound,:video)
+    end
+
+    def update_post_params
+        params.require(:post).permit(:id, :caption, :topic, :author_id, :tags, :sound,:video, :comment_count)
     end
 
 end

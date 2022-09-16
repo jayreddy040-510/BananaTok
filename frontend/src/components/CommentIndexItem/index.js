@@ -38,7 +38,7 @@ const CommentIndexItem = props => {
                             </div>
                             <div className="hover-thing">
                                 <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
-                                {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
+                                {sessionUser.id === comment.giverId ? <DeleteModal post={post} commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
 
                             </div>
                         </div>
@@ -68,7 +68,7 @@ const CommentIndexItem = props => {
                             </div>
                             <div className="hover-thing">
                                 <BiDotsHorizontalRounded id={`cm${comment.id}`} className='comment-menu' /> 
-                                {sessionUser.id === comment.giverId ? <DeleteModal commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
+                                {sessionUser.id === comment.giverId ? <DeleteModal post={post} commentId={id} comment={comment} toggleEditor={setShowEditor} /> : <ReportModal commentId={id} comment={comment} />}
 
                             </div>
                         </div>

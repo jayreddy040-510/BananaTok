@@ -9,7 +9,7 @@
 
 .left-show {
     height: 100%;
-    width: 60%;
+    width: 70%;
     background-color:rgb(28, 27, 27);
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
 
 .right-show {
     height: 100%;
-    width: 40%;
+    width: 30%;
     background-color:white;
     display: flex;
     flex-direction: column;
@@ -105,7 +105,7 @@
 .show-page-video {
     object-fit: cover;
     /* border-radius: 5px; */
-    width: 60%;
+    width: 70%;
     height: -webkit-fill-available;
     cursor: pointer;
     z-index: 1;
@@ -114,7 +114,7 @@
 .show-page-video-background {
         object-fit: cover;
         /* border-radius: 5px; */
-        width: 60%;
+        width: 70%;
         height: -webkit-fill-available;
         /* cursor: pointer; */
         opacity: 0.05;
@@ -163,7 +163,7 @@
     position:absolute;
     /* top:90%; */
     bottom: 8%;
-    right: 56%;
+    right: 46%;
     z-index: 2;
 }
 
@@ -247,7 +247,8 @@
 .comment-body {
     height: 50%;
     overflow-wrap: break-word;
-    font-family: Avenir Book, Arial
+    font-family: Avenir Book, Arial;
+    width: 94%;
 }
 
 .comment-author {
@@ -290,7 +291,7 @@
 
 #ai{
     position: absolute;
-    right: 6%;
+    right: 5%;
     font-size: 16px;
 }
 
@@ -476,7 +477,7 @@ border-radius:4px;
 
 aside.emoji-picker-react {
     position: absolute !important;
-    bottom: 7%;
+    bottom: 9%;
     right: 1%;
 
 }
@@ -503,7 +504,10 @@ aside.emoji-picker-react {
 }
 
 #modal-close {
-    font-size: 25px;
+    font-size: 22px;
+    position: absolute;
+    margin-right: 95%;
+    margin-bottom: 77%;
 }
 
 #modal-close:hover {
@@ -523,22 +527,46 @@ aside.emoji-picker-react {
 .modal-update {
     position: absolute;
     top: 20%;
-    left: 15%;
+    left: 30%;
     background-color: floralwhite;
-    height: 60%;
-    width: 70%;
+    height: 65%;
+    width: 45%;
     border-radius: 5px;
     box-shadow: 0px 12px 19px -12px rgb(40,40,40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
+
+.div1 {
+    background-color: grey;
+    height: 80%;
+    width: 49%
+}
+
+.div2 {
+    background-color: yellowgreen;
+    height: 80%;
+    width: 1%;
+
+}
+
+.div3 {
+    background-color: aqua;
+    height: 80%;
+    width: 49%;
+
+}
+
 
 .form-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: space-evenly;
 }
 
 .label-input-wrapper {
@@ -551,26 +579,27 @@ aside.emoji-picker-react {
 }
 
 .update-caption {
-    width: 100%;
+    width: 80%;
     height: 75%;
 }
 
 .update-tags {
-    width: 100%;
+    width: 80%;
     height: 75%;
 }
 
 .update-post-button {
-    position: absolute;
-    margin-top: 20%;
-    width: 
+    width: 80%;
 }
 
-/* .label-input-wrapper label {
+.label-input-wrapper label {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-} */
+    align-items: center;
+}
 
 .del-button {
     position: absolute;
@@ -588,6 +617,14 @@ aside.emoji-picker-react {
     cursor: pointer;
     font-weight: 800;
 
+}
+
+#comment-length {
+    position: absolute;
+    right: 25.7%;
+    bottom: 7.3%;
+    font-size: 12px;
+    color: rgba(40,40,40,0.4);
 }
 
 
@@ -642,8 +679,16 @@ aside.emoji-picker-react {
     }
 
     .del-button {
-        top: 5%;
+        top: 3%;
     }
 
+    #comment-length {
+        right: 26.3%;
+        bottom: 6.2%;
+    }
+
+    #modal-close {
+        margin-bottom: 70%;
+    }
 
 }

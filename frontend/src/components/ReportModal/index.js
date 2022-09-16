@@ -30,7 +30,7 @@ return (
     <div id={`pb${comment.id}`} className="pb" >
         <img src='/delete_modal.png' className='hover-delete'></img>
         <div className="delete-edit-container1">
-            <span >Report   <FaFontAwesomeFlag /></span>
+            <span id="delete-comment-container1">Report   <FaFontAwesomeFlag /></span>
         </div>
     </div>
 </>
