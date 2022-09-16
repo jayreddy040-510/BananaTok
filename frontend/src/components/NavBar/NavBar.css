@@ -51,7 +51,7 @@
     width: 80%;
     outline: none;
     border: none;
-    border-right: solid;
+    border-right: solid 0.2px rgba(101, 102, 103, 0.3);
     border-width: 0.2px;
     border-color: rgb(101, 102, 103);
     caret-color: rgb(255,196,12);
