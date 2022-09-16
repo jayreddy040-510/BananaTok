@@ -247,6 +247,7 @@
 .comment-body {
     height: 50%;
     overflow-wrap: break-word;
+    font-family: Avenir Book, Arial
 }
 
 .comment-author {
