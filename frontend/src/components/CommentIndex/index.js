@@ -16,14 +16,21 @@ const CommentIndex = (props) => {
     const comments = useSelector(getComments);
     
 
-
+    if (comments.length > 0) {
     return (
         
         <>
+        
     {Object.values(comments).reverse().map((comment) => <CommentIndexItem commentId={comment.id} key={Math.random() * Math.random() * Math.random()} comment={comment} post={props.post}/>)}
         </>
 
     )
+
+    } else {
+        return (
+        <div id="empty-comments-div">There don't seem to be any comments. Be the first to comment!</div>
+        )
+    }
 
 
     }
