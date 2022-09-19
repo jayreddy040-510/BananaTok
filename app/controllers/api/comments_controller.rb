@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-    before_action :require_logged_in, only: [:destroy, :update, :create]
+    # before_action :require_logged_in, only: [:destroy, :update, :create]
 
 
     def create

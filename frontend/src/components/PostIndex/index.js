@@ -112,7 +112,6 @@ const colorFilterSubdiv = () => {
               <br />
               <div className="video-show-link">
                 {sessionUser ? <Link to={`@${post.username}/posts/${post.id}`}>
-                  {console.log(post.username, post.id, "herehere")}
                   <video className="videos" loop autoPlay muted controls>
                     <source src={post.videoUrl} type="video/mp4" />
                     video cannot be played
