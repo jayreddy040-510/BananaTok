@@ -35,7 +35,7 @@ This README will outline the features, intent, and technology of BananaTok.
 
 1) Splash Page/Index:
 
-True to TikTok's design, BananaTok features a Splash Page that shows videos and some details about said videos to an unregistered user:
+- True to TikTok's design, BananaTok features a Splash Page that shows videos and some details about said videos to an unregistered user:
 
 ![SplashPage](https://media3.giphy.com/media/0hEzvth8K37MTzoHIW/giphy.gif?cid=790b7611f03160ed4c5afc792da760f9175db656b3ca50dd&rid=giphy.gif&ct=g)
 
@@ -44,7 +44,7 @@ True to TikTok's design, BananaTok features a Splash Page that shows videos and 
 
 2) User Authentication:
 
-BananaTok has the full User Authentication pattern (signup, login, demo login), limiting some of its features to users who create an account/login. Logged in users can see and populate comments on posts as well as upload, edit and delete their own posts:
+- BananaTok has the full User Authentication pattern (signup, login, demo login), limiting some of its features to users who create an account/login. Logged in users can see and populate comments on posts as well as upload, edit and delete their own posts:
 
 ![LoginPage](./frontend/public/login.png)
 
@@ -53,7 +53,7 @@ BananaTok has the full User Authentication pattern (signup, login, demo login), 
 
 3) Creating, Reading, Updating, and Destroying Comments:
 
-As mentioned above, users can comment on each other's (and their own) posts. Users can then edit or delete their own comments:
+- As mentioned above, users can comment on each other's (and their own) posts. Users can then edit or delete their own comments:
 
 ![CommentsDemo](./frontend/public/comments.png)
 
@@ -62,7 +62,7 @@ As mentioned above, users can comment on each other's (and their own) posts. Use
 
 4) Creating, Reading, Updating, and Destroying Posts:
 
-Users can upload their own posts after creating an account/logging in. They can then edit/delete their own posts:
+- Users can upload their own posts after creating an account/logging in. They can then edit/delete their own posts:
 
 ![UploadVideoPage](./frontend/public/uploadvideo.png)
 
@@ -71,6 +71,6 @@ Users can upload their own posts after creating an account/logging in. They can 
 
 5) Filter Videos by Topic:
 
-Users can filter out videos on the Splash Page based off their topic of choice:
+- Users can filter out videos on the Splash Page based off their topic of choice:
 
 ![FilterDemo](https://media0.giphy.com/media/9u8EaP6WUV7wrWE860/giphy.gif?cid=790b7611ab3b301d9de037c144917912b09e477c56e88226&rid=giphy.gif&ct=g)
