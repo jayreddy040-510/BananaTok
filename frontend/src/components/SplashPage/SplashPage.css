@@ -142,7 +142,25 @@ html {
     align-items: center;
 }
 
-.topics-container .sub-div {
+.sub-div-selected {
+    font-family: Poppins;
+    width: 100%;
+    background-color: #F9F9F9;
+    font-size: 18px;
+    font-weight: 600;
+
+    height: 12.5%;
+    color: rgb(255,196,12);
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.sub-div-selected:hover {
+    cursor:pointer;
+}
+
+.topics-container .sub-div{
     font-family: Poppins;
     width: 100%;
     background-color: transparent;

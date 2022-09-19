@@ -8,14 +8,17 @@ import { GiChopsticks, GiMusicalNotes } from "react-icons/gi"
 import { HiOutlineSparkles } from "react-icons/hi"
 import {TbPaw} from "react-icons/tb"
 import { MdOutlineSportsBasketball } from "react-icons/md"
-import * as sessionActions from '../../store/session';
+// import * as sessionActions from '../../store/session';
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 
-const SplashPage = () => {
+const SplashPage = (props) => {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory();
+    const gamingClickHandle = () => {
+        history.push(`/posts/topic=Gaming`)
+    }
 
 
 
@@ -51,37 +54,37 @@ const SplashPage = () => {
 
             <div className="topics-container">
                     <span className="container-subheading">Popular Topics</span>
-                    <div className="sub-div">
+                    <div id="comedy-sub-div" className="sub-div">
                         <span className="icon"><FaRegLaughBeam /></span>
                         <div className="sub-div-spacer"></div>
                         Comedy
                     </div>
-                    <div className="sub-div">
+                    <div id="gaming-sub-div" className="sub-div" onClick={gamingClickHandle}>
                         <span className="icon"><TbDeviceGamepad /></span>
                         <div className="sub-div-spacer"></div>
                         Gaming
                     </div>
-                    <div className="sub-div">
+                    <div id="food-sub-div" className="sub-div">
                         <span className="icon"><GiChopsticks /></span>
                         <div className="sub-div-spacer"></div>
                         Food
                     </div>
-                    <div className="sub-div">
+                    <div id="dance-sub-div" className="sub-div">
                         <span className="icon"><GiMusicalNotes /></span>
                         <div className="sub-div-spacer"></div>
                         Dance
                     </div>
-                    <div className="sub-div">
+                    <div id="beauty-sub-div" className="sub-div">
                          <span className="icon"><HiOutlineSparkles /></span>
                         <div className="sub-div-spacer"></div>
                         Beauty
                     </div>
-                    <div className="sub-div">
+                    <div id="animals-sub-div" className="sub-div">
                          <span className="icon"><TbPaw /></span>
                         <div className="sub-div-spacer"></div>
                         Animals
                     </div>
-                    <div className="sub-div">
+                    <div id="sports-sub-div" className="sub-div">
                         <span className="icon"><MdOutlineSportsBasketball /></span>
                         <div className="sub-div-spacer"></div>
                         Sports
@@ -108,7 +111,7 @@ const SplashPage = () => {
 
 
         <div className="right-container">
-            <PostIndex />
+            <PostIndex topic={props.topic}/>
         </div>
 
     </div>

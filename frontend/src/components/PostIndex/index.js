@@ -7,49 +7,91 @@ import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { fetchBananas, createBanana, updateBanana, removeBanana } from "../../store/banana";
 import PostText from "../PostText";
+import { BiNoEntry } from "react-icons/bi";
 
 
 
-const PostIndex = () => {
+const PostIndex = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const posts = useSelector(getPosts);
   const sessionUser = useSelector((state) => state.session.user);
   let banana;
   const [bananaLike, setBananaLike] = useState(1)
-//   if (posts) {
+  let res;
+  
+  if (props.topic === "all") {
+    res = posts;
+  } else {
+  res = posts.filter( post => {
+    return post.topic === props.topic
+  })
+}
 
-//   posts.forEach( post => {
+//know which subdiv is selected in filter
+const colorFilterSubdiv = () => {
+  let x;
+  switch (props.topic) {
+    case "all":
+      const x = document.querySelector(`.sub-div-selected`)
+      x.classList.add('sub-div')
+      x.classList.remove('sub-div-selected')
+      // document.querySelectorAll(`.sub-div`).forEach( query => {
+        
+      //     query.classList.remove('sub-div-selected')
+          
+      // })
+
+      return;
+    case "Gaming":
+      x = "gaming"
+      break;
+    case "Comedy":
+      x = "comedy";
+      break;
+    case "Food":
+      x = "food";
+      break;
+    case "Dance":
+      x = "dance";
+      break;
+    case "Beauty":
+      x = "beauty";
+      break;
+    case "Animals":
+      x = "animals";
+      break;
+    case "Sports":
+      x = "sports";
+      break;
+
+    }
+      document.querySelector(`#${x}-sub-div`).classList.toggle('sub-div-selected')
+
+      // document.querySelector(`#${x}-sub-div`).style.backgroundColor = "#F9F9F9"
+      // document.querySelector(`#${x}-sub-div`).style.color = "rgb(255,196,12)"
+      // document.querySelector(`#${x}-sub-div span`).style.color = "rgb(255,196,12)"
+
+
+}
+
+// posts.forEach( post => {
 //   banana = document.getElementById(`button-banana-picture${post.id}`);
+//   if (banana) {
 //   for (let i = 0; i < post.bananas.length; i++) {
-//     if (
+//     if ( 
+//       sessionUser &&
 //       post.bananas[i].giver_id === sessionUser.id &&
-//       post.bananas[i].on && banana
+//       post.bananas[i].on
 //     ) {
 //       banana.src = "banana-liked.png";
+//     } else if (!post.bananas[i].on && post.bananas) {
+//       banana.src = "banana-unliked.png"
 //     }
 //   }
 // }
+// }
 // )
-//   }
-
-posts.forEach( post => {
-  banana = document.getElementById(`button-banana-picture${post.id}`);
-  if (banana) {
-  for (let i = 0; i < post.bananas.length; i++) {
-    if ( 
-      sessionUser &&
-      post.bananas[i].giver_id === sessionUser.id &&
-      post.bananas[i].on
-    ) {
-      banana.src = "banana-liked.png";
-    } else if (!post.bananas[i].on && post.bananas) {
-      banana.src = "banana-unliked.png"
-    }
-  }
-}
-}
-)
   
 
   useEffect(() => {
@@ -63,27 +105,14 @@ posts.forEach( post => {
       <div className="post-index-div">
         <br />
         <br />
-
-        {posts.map((post) => {
+        {res.map((post) => {
+        // {colorFilterSubdiv()}
           return (
             <div key={post.id} className="post-container">
+
               <div className="index-posttext">
                 <PostText post={post} index={true}/>
               </div>
-
-              {/* <div className="post-text-container"> 
-               <p className="postindex-username">{post.username} {post.verified ? <BsCheckCircleFill className="verified-react-icon"/> : null}</p>
-               <br />
-                <p className="postindex-caption">
-                  {post.caption}
-                  <span className="postindex-tags">
-                    {` ${post.tags}`}
-                  </span>
-                  <br />
-                  <br />
-                  <span className="sound-span"><IoMusicalNotes className="sound-icon"/> {post.sound ? post.sound : `original sound - ${post.username}`  }</span>
-                </p>
-              </div> */}
               <br />
               <div className="video-show-link">
                 {sessionUser ? <Link to={`@${post.username}/posts/${post.id}`}>
@@ -128,7 +157,7 @@ posts.forEach( post => {
                     <img
                       id={`button-banana-picture${post.id}`}
                       className="button-picture"
-                      src="banana-unliked.png"
+                      src="/banana-unliked.png"
                     ></img>
                   </button>
                   <div className="index-button-number" id="banana-number">
@@ -144,7 +173,7 @@ posts.forEach( post => {
                       }
                     }}
                   >
-                    <img className="button-picture" src="gorilla.png"></img>
+                    <img className="button-picture" src="/gorilla.png"></img>
                   </button>
                   <div className="index-button-number" id="comment-number">
                   {post.commentCount > 1000 ? String(post.commentCount).substring(0,3) + 'K' : post.commentCount }

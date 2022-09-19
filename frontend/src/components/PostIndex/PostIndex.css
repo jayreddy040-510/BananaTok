@@ -186,6 +186,14 @@
     font-weight: 500;
 }
 
+/* #gaming-sub-div, #gaming-sub-div span {
+    background-color: #f9f9f9;
+    color: red;
+} */
+
+
+
+
 @media only screen and (min-width: 1601px) {
 
     .postindex-username {
