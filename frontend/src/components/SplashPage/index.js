@@ -1,5 +1,5 @@
 import "./SplashPage.css"
-import { BsHouse } from "react-icons/bs"
+import { BsHouse, BsGithub, BsLinkedin } from "react-icons/bs"
 import { HiOutlinePlus } from "react-icons/hi";
 import PostIndex from "../PostIndex";
 import { FaRegLaughBeam } from "react-icons/fa"
@@ -88,7 +88,17 @@ const SplashPage = () => {
                     </div>
             </div>
             <div className="spacer"></div>
-            <div className="sug-acc"></div>
+            <div className="links-container">
+                <br />
+                    <span className="container-subheading">Contact Me</span>
+                    < br/>
+                    <div id="links-subdiv" className="sub-div">
+                    <a href="https://www.github.com/jayreddy040-510"><span className="links-icons"><BsGithub /></span></a>
+                        <div className="sub-div-spacer"></div>
+                        <div className="sub-div-spacer"></div>
+                        <a href="https://www.linkedin.com/in/jay-reddy-69538b240/"><span className="links-icons"><BsLinkedin /></span></a>
+                    </div>
+            </div>
 
         </div>
 
