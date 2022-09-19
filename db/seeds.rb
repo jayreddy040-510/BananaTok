@@ -29,17 +29,17 @@ ApplicationRecord.transaction do
   user5 = User.create!(password: "password", username: "225lean", name: "GGran", about_me: "Post daily fitness content! Follow me for fitspo!", email: "lifting@gmail.com", verified: true)
 
 
-  user1_post1 = Post.create!(caption: "Look at my dog and how cute he is!!", topic: "Animals", author_id: 1, banana_count: 14328, comment_count: 245, tags: "#livelovelaugh, #caninecuties, #taylorswift, #downwiththesickness, #alalala")
+  # user1_post1 = Post.create!(caption: "Look at my dog and how cute he is!!", topic: "Animals", author_id: 1, banana_count: 14328, comment_count: 245, tags: "#livelovelaugh, #caninecuties, #taylorswift, #downwiththesickness, #alalala")
 
   user1_post2 = Post.create!(caption: "Dogs add slivers of joy to this desolate desert of an existence", topic: "Animals", author_id: 1, banana_count: 96453, comment_count: 113)
 
-  user2_post1 = Post.create!(caption: "Josh made banana crepes for Sunday breakfast !!", topic: "Love", author_id: 2, sound: "Jack Johnson - Banana Pancakes", tags: "#yummy, #food, #feedme, #banana, #pancakes, #bananapancakes")
+  user2_post1 = Post.create!(caption: "Josh made banana crepes for Sunday breakfast !!", topic: "Beauty", author_id: 2, sound: "Jack Johnson - Banana Pancakes", tags: "#yummy, #food, #feedme, #banana, #pancakes, #bananapancakes")
 
-  user2_post2 = Post.create!(caption: "We didn't see each other for a whole 3 hours ! xD", topic: "Love", author_id: 2, banana_count: 283456, comment_count: 864, tags: "#tags, #imissedhim, #lifeinParis, #champselysees", sound: "Joe Dassin - Champs Elysees")
+  user2_post2 = Post.create!(caption: "We didn't see each other for a whole 3 hours ! xD", topic: "Beauty", author_id: 2, banana_count: 283456, comment_count: 864, tags: "#tags, #imissedhim, #lifeinParis, #champselysees", sound: "Joe Dassin - Champs Elysees")
   
-  user3_post1 = Post.create!(caption: "It's time for us to stop running into the arms of the wolf, trying to escape the fox! - Malcolm X", topic: "Education", author_id: 3, tags: "#blackisbeautiful", sound: "Malcolm X - 50 Greatest Speeches of All Time")
+  user3_post1 = Post.create!(caption: "It's time for us to stop running into the arms of the wolf, trying to escape the fox! - Malcolm X", topic: "Beauty", author_id: 3, tags: "#blackisbeautiful", sound: "Malcolm X - 50 Greatest Speeches of All Time")
 
-  user3_post2 = Post.create!(caption: "The ability to read awoke inside of me some long dormant craving to be mentally alive - Malcolm X", topic: "Education", author_id: 3, banana_count: 458, comment_count: 13)
+  # user3_post2 = Post.create!(caption: "The ability to read awoke inside of me some long dormant craving to be mentally alive - Malcolm X", topic: "Beauty", author_id: 3, banana_count: 458, comment_count: 13)
 
   user4_post1 = Post.create!(caption: "silence is golden", topic: "Animals", author_id: 4, banana_count: 120, comment_count: 3)
 
@@ -49,9 +49,9 @@ ApplicationRecord.transaction do
 
 
 
-  file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/1.mp4')
+  # file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/1.mp4')
 
-  user1_post1.video.attach(io: file, filename: '1.mp4')
+  # user1_post1.video.attach(io: file, filename: '1.mp4')
 
   file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/3.mp4')
   
@@ -65,9 +65,9 @@ ApplicationRecord.transaction do
   
   user3_post1.video.attach(io: file, filename: '6.mp4')
   
-  file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/5.mp4')
+  # file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/5.mp4')
   
-  user3_post2.video.attach(io: file, filename: '5.mp4')
+  # user3_post2.video.attach(io: file, filename: '5.mp4')
   
   file = URI.open('https://bananatok-seeds.s3.us-west-1.amazonaws.com/2.mp4')
 

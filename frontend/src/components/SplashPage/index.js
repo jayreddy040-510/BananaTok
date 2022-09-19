@@ -77,6 +77,11 @@ const SplashPage = (props) => {
 
             <div className="topics-container">
                     <span className="container-subheading">Popular Topics</span>
+                    <div id="animals-sub-div" className="sub-div" onClick={animalsClickHandle}>
+                         <span className="icon"><TbPaw /></span>
+                        <div className="sub-div-spacer"></div>
+                        Animals
+                    </div>
                     <div id="comedy-sub-div" className="sub-div" onClick={comedyClickHandle}>
                         <span className="icon"><FaRegLaughBeam /></span>
                         <div className="sub-div-spacer"></div>
@@ -87,6 +92,11 @@ const SplashPage = (props) => {
                         <div className="sub-div-spacer"></div>
                         Gaming
                     </div>
+                    <div id="beauty-sub-div" className="sub-div" onClick={beautyClickHandle}>
+                         <span className="icon"><HiOutlineSparkles /></span>
+                        <div className="sub-div-spacer"></div>
+                        Beauty
+                    </div>
                     <div id="food-sub-div" className="sub-div" onClick={foodClickHandle}>
                         <span className="icon"><GiChopsticks /></span>
                         <div className="sub-div-spacer"></div>
@@ -96,16 +106,6 @@ const SplashPage = (props) => {
                         <span className="icon"><GiMusicalNotes /></span>
                         <div className="sub-div-spacer"></div>
                         Dance
-                    </div>
-                    <div id="beauty-sub-div" className="sub-div" onClick={beautyClickHandle}>
-                         <span className="icon"><HiOutlineSparkles /></span>
-                        <div className="sub-div-spacer"></div>
-                        Beauty
-                    </div>
-                    <div id="animals-sub-div" className="sub-div" onClick={animalsClickHandle}>
-                         <span className="icon"><TbPaw /></span>
-                        <div className="sub-div-spacer"></div>
-                        Animals
                     </div>
                     <div id="sports-sub-div" className="sub-div" onClick={sportsClickHandle}>
                         <span className="icon"><MdOutlineSportsBasketball /></span>
