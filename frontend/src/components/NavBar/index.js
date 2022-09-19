@@ -30,16 +30,11 @@ function NavBar() {
 
     const dispatch = useDispatch();
     const logOut = () => {
-
-        // await csrfFetch('/api/session', {
-        //     method: 'DELETE'
-        // }).then(res => res.json())
         dispatch(sessionActions.logout())
     }
 
     const demoLogin = () => {
         if (!sessionUser) {
-            // await csrfFetch('/api/session', demoLoginOptions).then(res => res.json())
             dispatch(sessionActions.login({username: 'dieguccio', password: 'dieguccio'}))
         }
     }
@@ -69,7 +64,7 @@ function NavBar() {
             <div className='nav-bar-buttons'>
                 <div><button className='upload-button' onClick={navigateToLogin}><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>
-                <div><button className='log-in-buttons' onClick={demoLogin}>Demo Log in</button></div>
+                <div><button className='log-in-buttons' onClick={demoLogin}>Demo</button></div>
             </div>
         </div>
         </>

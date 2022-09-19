@@ -63,6 +63,15 @@
 
 }
 
+.failure {
+    margin-top: 45%;
+    font-size: 40px;
+    color: rgba(22,24,35,0.5);
+    line-height: 22px;
+    font-family: Avenir Heavy, Avenir Book, Arial;
+
+}
+
 .postindex-username {
     /* align-self: flex-start; */
     font-family: Poppins;

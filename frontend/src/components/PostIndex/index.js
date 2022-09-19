@@ -33,15 +33,10 @@ const colorFilterSubdiv = () => {
   let x;
   switch (props.topic) {
     case "all":
-      const x = document.querySelector(`.sub-div-selected`)
-      x.classList.add('sub-div')
-      x.classList.remove('sub-div-selected')
-      // document.querySelectorAll(`.sub-div`).forEach( query => {
-        
-      //     query.classList.remove('sub-div-selected')
-          
-      // })
-
+      const y = document.querySelector(`.sub-div-selected`)
+      y.classList.add('sub-div')
+      y.classList.remove('sub-div-selected')
+      console.log(x)
       return;
     case "Gaming":
       x = "gaming"
@@ -66,7 +61,7 @@ const colorFilterSubdiv = () => {
       break;
 
     }
-      document.querySelector(`#${x}-sub-div`).classList.toggle('sub-div-selected')
+      document.querySelector(`#${x}-sub-div`).classList.add('sub-div-selected')
 
       // document.querySelector(`#${x}-sub-div`).style.backgroundColor = "#F9F9F9"
       // document.querySelector(`#${x}-sub-div`).style.color = "rgb(255,196,12)"
@@ -100,9 +95,10 @@ const colorFilterSubdiv = () => {
     
   }, []);
 
-  if (posts) {
+  if (res.length > 0) {
     return (
       <div className="post-index-div">
+        {console.log(!res, "here")}
         <br />
         <br />
         {res.map((post) => {
@@ -116,6 +112,7 @@ const colorFilterSubdiv = () => {
               <br />
               <div className="video-show-link">
                 {sessionUser ? <Link to={`@${post.username}/posts/${post.id}`}>
+                  {console.log(post.username, post.id, "herehere")}
                   <video className="videos" loop autoPlay muted controls>
                     <source src={post.videoUrl} type="video/mp4" />
                     video cannot be played
@@ -189,7 +186,7 @@ const colorFilterSubdiv = () => {
       </div>
     );
   } else {
-    return <div className="failure-div"></div>;
+    return <div className="failure">There are no videos here yet!</div>;
   }
 }
 

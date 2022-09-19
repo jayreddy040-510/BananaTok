@@ -41,7 +41,7 @@ ApplicationRecord.transaction do
 
   user3_post2 = Post.create!(caption: "The ability to read awoke inside of me some long dormant craving to be mentally alive - Malcolm X", topic: "Education", author_id: 3, banana_count: 458, comment_count: 13)
 
-  user4_post1 = Post.create!(caption: "silence is golden", topic: "Gaming", author_id: 4, banana_count: 120, comment_count: 3)
+  user4_post1 = Post.create!(caption: "silence is golden", topic: "Animals", author_id: 4, banana_count: 120, comment_count: 3)
 
   user5_post1 = Post.create!(caption: "Ripping Waves, Yours Truly~~", tags: "#hang10 #or20 #rocketpower #ridinwaves #withtheboys #ilovemylife", topic: "Sports", author_id: 5, banana_count: 458, comment_count: 0)
 

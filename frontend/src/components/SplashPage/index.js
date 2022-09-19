@@ -18,6 +18,29 @@ const SplashPage = (props) => {
     const history = useHistory();
     const gamingClickHandle = () => {
         history.push(`/posts/topic=Gaming`)
+    } 
+    const animalsClickHandle = () => {
+        history.push(`/posts/topic=Animals`)
+    }
+    const danceClickHandle = () => {
+        history.push(`/posts/topic=Dance`)
+    }
+    const foodClickHandle = () => {
+        history.push(`/posts/topic=Food`)
+    }
+    const sportsClickHandle = () => {
+        history.push(`/posts/topic=Sports`)
+    }
+    const comedyClickHandle = () => {
+        history.push(`/posts/topic=Comedy`)
+    }
+    const beautyClickHandle = () => {
+        history.push(`/posts/topic=Beauty`)
+    }
+
+    const forYouClickHandle = () => {
+        
+        sessionUser ? history.push(`/`) : history.push('/login')
     }
 
 
@@ -30,7 +53,7 @@ const SplashPage = (props) => {
 
             <div className="ff-container">
 
-                <div id="for-you" className="sub-div">
+                <div id="for-you" className="sub-div" onClick={forYouClickHandle}>
                     <span className="icon"><BsHouse /></span>
                     <div className="sub-div-spacer"></div>
                     For You
@@ -54,7 +77,7 @@ const SplashPage = (props) => {
 
             <div className="topics-container">
                     <span className="container-subheading">Popular Topics</span>
-                    <div id="comedy-sub-div" className="sub-div">
+                    <div id="comedy-sub-div" className="sub-div" onClick={comedyClickHandle}>
                         <span className="icon"><FaRegLaughBeam /></span>
                         <div className="sub-div-spacer"></div>
                         Comedy
@@ -64,27 +87,27 @@ const SplashPage = (props) => {
                         <div className="sub-div-spacer"></div>
                         Gaming
                     </div>
-                    <div id="food-sub-div" className="sub-div">
+                    <div id="food-sub-div" className="sub-div" onClick={foodClickHandle}>
                         <span className="icon"><GiChopsticks /></span>
                         <div className="sub-div-spacer"></div>
                         Food
                     </div>
-                    <div id="dance-sub-div" className="sub-div">
+                    <div id="dance-sub-div" className="sub-div" onClick={danceClickHandle}>
                         <span className="icon"><GiMusicalNotes /></span>
                         <div className="sub-div-spacer"></div>
                         Dance
                     </div>
-                    <div id="beauty-sub-div" className="sub-div">
+                    <div id="beauty-sub-div" className="sub-div" onClick={beautyClickHandle}>
                          <span className="icon"><HiOutlineSparkles /></span>
                         <div className="sub-div-spacer"></div>
                         Beauty
                     </div>
-                    <div id="animals-sub-div" className="sub-div">
+                    <div id="animals-sub-div" className="sub-div" onClick={animalsClickHandle}>
                          <span className="icon"><TbPaw /></span>
                         <div className="sub-div-spacer"></div>
                         Animals
                     </div>
-                    <div id="sports-sub-div" className="sub-div">
+                    <div id="sports-sub-div" className="sub-div" onClick={sportsClickHandle}>
                         <span className="icon"><MdOutlineSportsBasketball /></span>
                         <div className="sub-div-spacer"></div>
                         Sports
