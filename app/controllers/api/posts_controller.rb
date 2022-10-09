@@ -5,6 +5,12 @@ class Api::PostsController < ApplicationController
         render :index
     end
 
+    def search
+        query = params[:query]
+        @posts = Post.where('tags ILIKE ?', "%#{query}%")
+        render :index
+    end
+
     def show
         @post = Post.find_by(id: params[:id])
         

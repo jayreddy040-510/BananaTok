@@ -21,6 +21,9 @@ function App() {
       <Route exact path="/">
         <SplashPage topic={'all'}/>
       </Route>
+      <Route path="/search/:query">
+        <SplashPage topic={'all'} search={true}/>
+      </Route>
       <Route path="/upload">
         <CreatePostForm />
       </Route>

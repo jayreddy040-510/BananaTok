@@ -10,7 +10,8 @@ import {TbPaw} from "react-icons/tb"
 import { MdOutlineSportsBasketball } from "react-icons/md"
 // import * as sessionActions from '../../store/session';
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+
 
 
 const SplashPage = (props) => {
@@ -134,7 +135,7 @@ const SplashPage = (props) => {
 
 
         <div className="right-container">
-            <PostIndex topic={props.topic}/>
+            <PostIndex topic={props.topic} search={props.search}/>
         </div>
 
     </div>

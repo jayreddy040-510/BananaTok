@@ -12,6 +12,11 @@ import { BsSearch } from "react-icons/bs";
 function NavBar() {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
+    const [search, setSearch] = useState('')
+
+    const searchHandleChange = (e) => {
+        setSearch(e.target.value)
+    }
 
     const navigateToLogin = () => {
         history.push('/login')
@@ -45,7 +50,7 @@ function NavBar() {
                 <div className='logo-title' onClick={handleClick}><img className='logo' src="/favicon.ico" alt='' />
                     <img className='title' src="/title3.png" alt='' />
                     </div>
-                    <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
+                    <div className='search-bar-div'><input autcomplete className="search-bar" type="text" placeholder='  Search Videos by Tag' value={search} onChange={searchHandleChange} /><button className='search-button' onClick={ () => history.push(`/search/${search}`)}><BsSearch /></button></div>
             <div className='nav-bar-buttons'>
                     <div><button className='upload-button' onClick={navigateToUpload}><span className='plus'>+ </span> Upload</button></div>
                     <div><button className='log-in-buttons' onClick={logOut}>Log Out</button></div>
@@ -60,8 +65,8 @@ function NavBar() {
                 <div className='logo-title' onClick={handleClick}><img className='logo' src="/favicon.ico" alt=''/>
                 <img className='title' src="/title3.png" alt='' />
                 </div>
-            <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos' /><button className='search-button'><BsSearch /></button></div>
-            <div className='nav-bar-buttons'>
+                <div className='search-bar-div'><input className="search-bar" type="text" placeholder='  Search Videos by Tag'  value={search} onChange={searchHandleChange} /><button className='search-button' onClick={ () => history.push(`/search/${search}`)} ><BsSearch /></button></div>
+                <div className='nav-bar-buttons'>
                 <div><button className='upload-button' onClick={navigateToLogin}><span className='plus'>+ </span> Upload</button></div>
                 <div><button className='log-in-buttons' onClick={navigateToLogin}>Log in</button></div>
                 <div><button className='log-in-buttons' onClick={demoLogin}>Demo</button></div>

@@ -1,13 +1,15 @@
 import "./PostIndex.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts, fetchPosts } from "../../store/post";
+import { getPosts, fetchPosts, fetchQueryPosts } from "../../store/post";
 import { getUsers, getUser, fetchUsers } from "../../store/user";
 import { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { fetchBananas, createBanana, updateBanana, removeBanana } from "../../store/banana";
 import PostText from "../PostText";
 import { BiNoEntry } from "react-icons/bi";
+import { GiFilmProjector } from "react-icons/gi"
+
 
 
 
@@ -16,6 +18,7 @@ const PostIndex = (props) => {
   const history = useHistory();
   const posts = useSelector(getPosts);
   const sessionUser = useSelector((state) => state.session.user);
+  const {query} = useParams()
   let banana;
   const [bananaLike, setBananaLike] = useState(1)
   let res;
@@ -90,10 +93,10 @@ const colorFilterSubdiv = () => {
   
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    !props.search ? dispatch(fetchPosts()) : dispatch(fetchQueryPosts(query));
     
     
-  }, []);
+  }, [query]);
 
   if (res.length > 0) {
     return (
@@ -111,7 +114,7 @@ const colorFilterSubdiv = () => {
               </div>
               <br />
               <div className="video-show-link">
-                {sessionUser ? <Link to={`@${post.username}/posts/${post.id}`}>
+                {sessionUser ? <Link to={`/@${post.username}/posts/${post.id}`}>
                   <video className="videos" loop autoPlay muted controls>
                     <source src={post.videoUrl} type="video/mp4" />
                     video cannot be played
@@ -185,7 +188,7 @@ const colorFilterSubdiv = () => {
       </div>
     );
   } else {
-    return <div className="failure">There are no videos here yet!</div>;
+    return <div className="failure"><GiFilmProjector className="failure-icon"/>There are no videos here yet!</div>;
   }
 }
 

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :index, :create, :destroy, :update]
     resources :bananas, only: [:index, :show, :create, :update, :destroy]
     resources :comments, only: [:show, :create, :update, :destroy]
+    get '/search/:query', to: "posts#search"
+
   end
   # post 'api/test', to: 'application#test'
   get '*path', to: "static_pages#frontend_index"

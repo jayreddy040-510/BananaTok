@@ -95,7 +95,16 @@ export const getPost = (postId) => state => {
 
 }
 
+export const fetchQueryPosts = (query) => async dispatch => {
+    const res = await fetch(`/api/search/${query}`)
 
+    if (res.ok) {
+
+    const payload = await res.json();
+    dispatch(receivePosts(payload));
+
+    }
+}
 
 export const fetchPosts = () => async dispatch => {
     const res = await fetch(`/api/posts`)
