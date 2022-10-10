@@ -90,6 +90,11 @@ const colorFilterSubdiv = () => {
 // }
 // }
 // )
+
+const handleHomeClick = () => {
+  console.log("click")
+  return query ? history.push("/") : document.documentElement.scrollTop = 0
+}
   
 
   useEffect(() => {
@@ -100,6 +105,7 @@ const colorFilterSubdiv = () => {
 
   if (res.length > 0) {
     return (
+      <>
       <div className="post-index-div">
         <br />
         <br />
@@ -184,10 +190,8 @@ const colorFilterSubdiv = () => {
             </div>
           )
         })}
-        <button className="home-mobile-button" onClick={() => {
-          query ? history.push("/") : document.documentElement.scrollTop = 0
-          }}><BsHouse /></button>
       </div>
+      </>
     );
   } else {
     return <div className="failure"><GiFilmProjector className="failure-icon"/>There are no videos here yet!</div>;

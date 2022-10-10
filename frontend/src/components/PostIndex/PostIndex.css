@@ -273,6 +273,7 @@
         top: 6.5rem;
         right: 2rem;
         scale: 2;
+        z-index: 50;
     }
 
     .right-container {

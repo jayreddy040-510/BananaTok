@@ -594,9 +594,12 @@ aside.emoji-picker-react {
 }
 
 .div3 {
-
+    margin-bottom: 10%;
     height: 100%;
     width: 49%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 
@@ -638,7 +641,7 @@ aside.emoji-picker-react {
 .update-post-button {
     font-family: Avenir Heavy, Avenir Book, Arial, Helvetica, sans-serif;
     width: 80%;
-    height:1%;
+    height:7%;
     border: none;
     background-color: rgb(255,196,12);
     color: white;
@@ -745,7 +748,7 @@ aside.emoji-picker-react {
     }
 
     #modal-close {
-        margin-bottom: 77%;
+        margin-bottom: 73%;
     }
 
     #enter-submit {

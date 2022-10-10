@@ -5,7 +5,7 @@ import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsHouse } from "react-icons/bs";
 
 
 
@@ -13,6 +13,7 @@ function NavBar() {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [search, setSearch] = useState('')
+    const handleHomeClick = () => { console.log('hi')}
 
     const searchHandleChange = (e) => {
         setSearch(e.target.value)
@@ -61,6 +62,8 @@ function NavBar() {
     } else return (
         <>
         <div className='nav'>
+        <button className="home-mobile-button" onClick={handleHomeClick} onTouchStart={handleHomeClick} onTouchEnd={handleHomeClick}><BsHouse /></button>
+
            
                 <div className='logo-title' onClick={handleClick}><img className='logo' src="/favicon.ico" alt=''/>
                 <img className='title' src="/title3.png" alt='' />
