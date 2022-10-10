@@ -9,6 +9,7 @@ import { fetchBananas, createBanana, updateBanana, removeBanana } from "../../st
 import PostText from "../PostText";
 import { BiNoEntry } from "react-icons/bi";
 import { GiFilmProjector } from "react-icons/gi"
+import { BsHouse } from "react-icons/bs"
 
 
 
@@ -39,7 +40,6 @@ const colorFilterSubdiv = () => {
       const y = document.querySelector(`.sub-div-selected`)
       y.classList.add('sub-div')
       y.classList.remove('sub-div-selected')
-      console.log(x)
       return;
     case "Gaming":
       x = "gaming"
@@ -101,7 +101,6 @@ const colorFilterSubdiv = () => {
   if (res.length > 0) {
     return (
       <div className="post-index-div">
-        {console.log(!res, "here")}
         <br />
         <br />
         {res.map((post) => {
@@ -185,6 +184,9 @@ const colorFilterSubdiv = () => {
             </div>
           )
         })}
+        <button className="home-mobile-button" onClick={() => {
+          query ? history.push("/") : document.documentElement.scrollTop = 0
+          }}><BsHouse /></button>
       </div>
     );
   } else {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css"
 import { videos } from "../LoginFormPage/index.js"
 
 function SignupFormPage() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -89,6 +90,10 @@ function SignupFormPage() {
 
       <button className="signup-button1" type="submit">Sign Up</button>
     </form>
+    <br />
+    <br />
+    <br />
+  <p id="login-p-tag">Already have an account? <span className='signup-span' onClick={() => {history.push("/signup")}}>Click here to login!</span></p> 
       </div>
     </div>
     <div className="welcome-video-container">

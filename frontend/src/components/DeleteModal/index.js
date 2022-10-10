@@ -65,7 +65,6 @@ return (
 
 <>
     <div id={`pb${comment.id}`} className="pb" >
-        {console.log("here", post)}
         <img src='/delete_modal.png' className='hover-delete'></img>
         <div className="delete-edit-container">
             <span id="delete-comment-container" onClick={()=>props.toggleEditor(true)}>Update <TiPencil className='delete-comment' /></span> |

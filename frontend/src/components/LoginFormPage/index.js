@@ -15,7 +15,11 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
   const history = useHistory();
 
-
+  const demoLogin = () => {
+    if (!sessionUser) {
+        dispatch(sessionActions.login({username: 'dieguccio', password: 'dieguccio'}))
+    }
+}
 
 
   if (sessionUser) return <Redirect to="/" />;
@@ -35,7 +39,6 @@ function LoginFormPage() {
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
-        console.log(errors);
       });
   }
 
@@ -73,6 +76,8 @@ function LoginFormPage() {
       <br />
       <span>Don't have an account? Sign up!</span> */}
     </form>
+    <button className='login-button' onClick={demoLogin}>Demo</button>
+
     <br />
     <br />
     <br />
